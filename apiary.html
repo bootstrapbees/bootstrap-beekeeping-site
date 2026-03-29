@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Apiary — Bootstrap Beekeeping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3E8; --linen: #F0E8D5; --navy: #1B2A4A;
+    --navy-light: #2C4070; --navy-pale: #E8EDF5;
+    --gold: #C8860A; --gold-light: #E8A020; --amber: #8B5E0A;
+    --text: #2A1F0E; --text-muted: #6B5A3E;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:#F7F3E8; color:var(--text); font-family:'Lora',Georgia,serif; min-height:100vh; overflow-x:hidden; }
+  body::after {
+    content:''; position:fixed; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.09'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:2;
+  }
+  .top-banner {
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    background:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    padding:8px 20px; gap:10px; height:40px;
+  }
+  .top-banner span { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,246,238,0.75); }
+  .top-banner .dot { width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.7; }
+  .bottom-strip { position:fixed; bottom:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 40%,var(--amber) 60%,var(--navy) 100%); z-index:200; }
+  .hamburger {
+    position:fixed; top:6px; left:14px; z-index:300;
+    background:none; border:none; cursor:pointer;
+    display:flex; flex-direction:column; justify-content:center; gap:5px;
+    padding:4px; width:32px; height:28px;
+  }
+  .hamburger span { display:block; width:22px; height:2px; background:rgba(250,246,238,0.85); border-radius:2px; transition:all 0.3s ease; transform-origin:center; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .drawer {
+    position:fixed; top:0; left:0; bottom:0; width:260px;
+    background:var(--navy); z-index:250;
+    transform:translateX(-100%); transition:transform 0.3s ease;
+    display:flex; flex-direction:column;
+    padding-top:80px; padding-bottom:40px;
+  }
+  .drawer.open { transform:translateX(0); }
+  .drawer-logo { display:flex; justify-content:center; margin-bottom:24px; padding:0 20px; }
+  .drawer-logo img { width:110px; }
+  .drawer-divider { width:40px; height:2px; margin:0 auto 24px; background:linear-gradient(90deg,var(--navy-light),var(--gold)); border-radius:2px; }
+  .drawer a { display:block; padding:13px 28px; font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(250,246,238,0.75); text-decoration:none; border-left:3px solid transparent; transition:color 0.2s,border-color 0.2s,background 0.2s; }
+  .drawer a:hover, .drawer a.active { color:#F7F3E8; border-left-color:var(--gold); background:rgba(255,255,255,0.05); }
+  .drawer-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:240; opacity:0; pointer-events:none; transition:opacity 0.3s; }
+  .drawer-overlay.open { opacity:1; pointer-events:all; }
+  .page-wrap { position:relative; z-index:1; min-height:100vh; background:#F7F3E8; padding:60px 24px 60px; }
+  .page-inner { max-width:680px; margin:0 auto; padding-top:20px; }
+  .page-logo { display:flex; justify-content:center; margin-bottom:10px; }
+  .page-logo img { width:140px; }
+
+  .apiary-header { text-align:center; margin-bottom:40px; }
+  .apiary-label { display:inline-block; background:var(--navy); color:rgba(250,246,238,0.8); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 14px; border-radius:2px; margin-bottom:14px; }
+  .apiary-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,2.8rem); font-weight:900; color:var(--navy); line-height:1.15; margin-bottom:8px; }
+  .apiary-title em { font-style:italic; color:var(--gold); }
+  .apiary-sub { font-style:italic; color:var(--text-muted); font-size:1rem; }
+  .apiary-rule { display:flex; width:80px; margin:16px auto 0; }
+  .apiary-rule-navy { flex:2; height:3px; background:var(--navy); border-radius:2px 0 0 2px; }
+  .apiary-rule-gold { flex:1; height:3px; background:var(--gold); border-radius:0 2px 2px 0; }
+  .post-card { background:#F7F3E8; border:1px solid rgba(27,42,74,0.1); border-radius:4px; overflow:hidden; margin-bottom:40px; box-shadow:0 2px 16px rgba(27,42,74,0.07); }
+  .post-img { width:100%; max-height:420px; object-fit:cover; display:block; }
+  .post-body { padding:28px 28px 32px; }
+  .post-meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .post-date { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+  .post-dot { width:3px; height:3px; border-radius:50%; background:var(--gold); }
+  .post-tag { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--navy); background:var(--navy-pale); padding:2px 8px; border-radius:2px; }
+  .post-title { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,4vw,1.9rem); font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:18px; }
+  .post-content { font-size:1.02rem; line-height:1.9; color:var(--text); }
+  .post-content p { margin-bottom:1.4em; }
+  .post-content p:last-child { margin-bottom:0; }
+  .post-content p.closing { font-style:italic; color:var(--text-muted); border-top:1px solid rgba(27,42,74,0.1); padding-top:1.2em; margin-top:1.6em; }
+  .post-caption { font-size:0.78rem; font-style:italic; color:var(--text-muted); text-align:center; padding:10px 20px; background:var(--linen); border-bottom:1px solid rgba(27,42,74,0.07); }
+  .post-gallery { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:1.6em 0; }
+  .post-gallery figure { margin:0; }
+  .post-gallery img { width:100%; height:180px; object-fit:cover; border-radius:3px; display:block; }
+  .post-gallery figcaption { font-size:0.75rem; font-style:italic; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+  @media(max-width:480px) { .post-gallery { grid-template-columns:1fr; } .post-gallery img { height:220px; } }
+</style>
+</head>
+<body>
+<div class="top-banner"><div class="dot"></div><span>Handcrafted Beekeeping — Alabama</span><div class="dot"></div></div>
+<div class="bottom-strip"></div>
+
+<button class="hamburger" id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="drawer-overlay" id="overlay" onclick="closeMenu()"></div>
+<nav class="drawer" id="drawer">
+  <div class="drawer-logo"><img src="logo.png" alt="Bootstrap Beekeeping"></div>
+  <div class="drawer-divider"></div>
+  <a href="index.html">Home</a>
+<a href="about.html">Our Story</a>
+<a href="apiary.html" class="active">Our Apiary</a>
+<a href="apiaryhq.html">Apiary HQ</a>
+<a href="honey.html">Honey &amp; Woodware</a>
+
+</nav>
+<script>
+  const hamburger=document.getElementById('hamburger');
+  const drawer=document.getElementById('drawer');
+  const overlay=document.getElementById('overlay');
+  function openMenu(){hamburger.classList.add('open');drawer.classList.add('open');overlay.classList.add('open');}
+  function closeMenu(){hamburger.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('open');}
+  hamburger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
+</script>
+<div class="page-wrap"><div class="page-inner">
+  <div class="page-logo"><img src="logo.png" alt="Bootstrap Beekeeping"></div>
+  <div class="apiary-header">
+    <div class="apiary-label">Our Apiary</div>
+    <h1 class="apiary-title">From the <em>Bee Yard</em></h1>
+    <p class="apiary-sub">Updates, observations, and honest notes from the field.</p>
+    <div class="apiary-rule"><div class="apiary-rule-navy"></div><div class="apiary-rule-gold"></div></div>
+  </div>
+
+  <!-- POST 2 -->
+  <article class="post-card">
+    <img class="post-img" src="images/post2-hives.jpg" alt="Both hives active 24 hours after install">
+    <div class="post-caption">Both colonies at the entrance, 24 hours after install. Already coming and going like they own the place.</div>
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-date">March 2026</span>
+        <div class="post-dot"></div>
+        <span class="post-tag">Day 1 Check</span>
+      </div>
+      <h2 class="post-title">24 Hours In — So Far, So Good</h2>
+      <div class="post-content">
+        <p>By the next morning both hives had bees moving in and out of the entrance with purpose. Not frantic, not clustered in confusion — just working. That steady, deliberate traffic is exactly what you want to see.</p>
+        <p>Our custom inner cover lets us check the feeders without disturbing the bees at all.</p>
+        <div class="post-gallery">
+          <figure>
+            <img src="images/post2-feeder.jpg" alt="Bees working the jar feeders through the inner cover">
+            <figcaption>Bees on the syrup jars through the custom inner cover — they found the feeders fast.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/post2-water.jpg" alt="Bees working the in-ground water station">
+            <figcaption>The in-ground water station already busy — dozens of bees working the floating boards.</figcaption>
+          </figure>
+        </div>
+        <p>Both sets of jars had bees working them — they found the syrup quickly and were already taking it down. Good sign.</p>
+        <p>The water station was the other thing that made me feel good. We built it in-ground with floating boards for landing space, and by day one it was already busy. Bees need water more than most new beekeepers realize, and having them locked onto a clean source this early means they are less likely to go looking for one somewhere less ideal.</p>
+        <p class="closing">One day down. A lot of season left to go. But right now everything looks the way it should, and that is enough.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 1 -->
+  <article class="post-card">
+    <img class="post-img" src="images/post1-install.jpg" alt="Package install day at the Bootstrap Beekeeping apiary">
+    <div class="post-caption">Install day — two packages, two hives, and a whole lot of buzzing. The hive stand on the right reads "In Memory of PawPaw."</div>
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-date">March 2026</span>
+        <div class="post-dot"></div>
+        <span class="post-tag">Package Install</span>
+      </div>
+      <h2 class="post-title">The First Shake — Installing Our Packages</h2>
+      <div class="post-content">
+        <p>There is something that happens the moment you tip a package of bees and feel that low, collective hum transfer through your gloves and up your arms. Nobody warns you about that part. I had read everything I could get my hands on, watched more videos than I care to admit, and still nothing quite prepares you for the reality of three pounds of live bees and one queen counting on you to get it right.</p>
+        <p>We started by pulling three frames from each hive to make room, working with wired wax foundation. Before anything went in, I gave everything a gentle mist — a simple sugar water spray with just a drop of lemongrass oil. It settles the bees and makes them feel a little more at home. A small thing, but it matters.</p>
+        <p>The queen cages came next. I removed the cork from the candy end and used something small to punch a tiny hole through — just enough to give the workers a head start on releasing her on their own timeline. I hung each cage sideways between two frames, right where she needed to be, and laid half a pollen patty across the top of those frames to give the colony something to work with from day one.</p>
+        <p>Then came the shake. I have read that installing your first package is something of a rite of passage in beekeeping, and I believe it. You tip the box, you commit, and a few thousand bees cascade down into the hive in a way that is equal parts terrifying and quietly wonderful. Once most of them were in, I eased the frames back into place as gently as I could manage.</p>
+        <p>The leftover package cage went right in front of the entrance so the stragglers could find their way in on their own. On top of the hive we set our custom inner cover — built to hold four quart jars of syrup — then a deep box over that to protect it, and the telescopic cover on top. Lashing straps go around each hive. Partly practical, partly because it looks right.</p>
+        <p>We ran through the whole process twice. Two packages, two hives. A couple of hours later, both package cages were empty and the bees had made themselves at home. We pulled the cages from the yard and called it a good day.</p>
+        <p class="closing">I will be honest — I am new at this. I do not have years of experience to draw from, just a lot of reading, some good training, and the kind of motivation that does not come from a book. One of these hive stands carries a small sign that reads <em>In Memory of PawPaw</em>. That one means a little more than the rest. We are just getting started.</p>
+      </div>
+    </div>
+  </article>
+
+</div></div>
+</body>
+</html>
