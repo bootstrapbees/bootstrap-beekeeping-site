@@ -21,32 +21,16 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.09'/%3E%3C/svg%3E");
     pointer-events:none; z-index:2;
   }
-  .top-banner {
-    position:fixed; top:0; left:0; right:0; z-index:200;
-    background:var(--navy);
-    display:flex; align-items:center; justify-content:center;
-    padding:8px 20px; gap:10px; height:40px;
-  }
+  .top-banner { position:fixed; top:0; left:0; right:0; z-index:200; background:var(--navy); display:flex; align-items:center; justify-content:center; padding:8px 20px; gap:10px; height:40px; }
   .top-banner span { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,246,238,0.75); }
   .top-banner .dot { width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.7; }
   .bottom-strip { position:fixed; bottom:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 40%,var(--amber) 60%,var(--navy) 100%); z-index:200; }
-  .hamburger {
-    position:fixed; top:6px; left:14px; z-index:300;
-    background:none; border:none; cursor:pointer;
-    display:flex; flex-direction:column; justify-content:center; gap:5px;
-    padding:4px; width:32px; height:28px;
-  }
+  .hamburger { position:fixed; top:6px; left:14px; z-index:300; background:none; border:none; cursor:pointer; display:flex; flex-direction:column; justify-content:center; gap:5px; padding:4px; width:32px; height:28px; }
   .hamburger span { display:block; width:22px; height:2px; background:rgba(250,246,238,0.85); border-radius:2px; transition:all 0.3s ease; transform-origin:center; }
   .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity:0; }
   .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-  .drawer {
-    position:fixed; top:0; left:0; bottom:0; width:260px;
-    background:var(--navy); z-index:250;
-    transform:translateX(-100%); transition:transform 0.3s ease;
-    display:flex; flex-direction:column;
-    padding-top:80px; padding-bottom:40px;
-  }
+  .drawer { position:fixed; top:0; left:0; bottom:0; width:260px; background:var(--navy); z-index:250; transform:translateX(-100%); transition:transform 0.3s ease; display:flex; flex-direction:column; padding-top:80px; padding-bottom:40px; }
   .drawer.open { transform:translateX(0); }
   .drawer-logo { display:flex; justify-content:center; margin-bottom:24px; padding:0 20px; }
   .drawer-logo img { width:110px; }
@@ -56,19 +40,63 @@
   .drawer-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:240; opacity:0; pointer-events:none; transition:opacity 0.3s; }
   .drawer-overlay.open { opacity:1; pointer-events:all; }
   .page-wrap { position:relative; z-index:1; min-height:100vh; background:#F7F3E8; padding:60px 24px 60px; }
-  .page-inner { max-width:680px; margin:0 auto; padding-top:20px; }
+  .page-inner { max-width:720px; margin:0 auto; padding-top:20px; }
   .page-logo { display:flex; justify-content:center; margin-bottom:10px; }
   .page-logo img { width:140px; }
 
-  .uc-wrap { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:65vh; text-align:center; gap:16px; }
-  .uc-hex { font-size:3.5rem; animation:bob 3s ease-in-out infinite; }
-  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  .uc-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:900; color:var(--navy); line-height:1.2; }
-  .uc-title em { font-style:italic; color:var(--gold); }
-  .uc-sub { font-style:italic; color:var(--text-muted); font-size:1rem; max-width:320px; line-height:1.7; }
-  .uc-rule { display:flex; width:70px; }
-  .uc-rule-navy { flex:2; height:2px; background:var(--navy); border-radius:2px 0 0 2px; }
-  .uc-rule-gold { flex:1; height:2px; background:var(--gold); border-radius:0 2px 2px 0; }
+  /* Hero */
+  .hq-hero { text-align:center; margin-bottom:48px; }
+  .hq-label { display:inline-block; background:var(--navy); color:rgba(250,246,238,0.8); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 14px; border-radius:2px; margin-bottom:14px; }
+  .hq-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,2.8rem); font-weight:900; color:var(--navy); line-height:1.15; margin-bottom:10px; }
+  .hq-title em { font-style:italic; color:var(--gold); }
+  .hq-desc { font-style:italic; color:var(--text-muted); font-size:1.05rem; line-height:1.75; max-width:520px; margin:0 auto 20px; }
+  .hq-rule { display:flex; width:80px; margin:0 auto; }
+  .hq-rule-navy { flex:2; height:3px; background:var(--navy); border-radius:2px 0 0 2px; }
+  .hq-rule-gold { flex:1; height:3px; background:var(--gold); border-radius:0 2px 2px 0; }
+
+  /* Feature sections */
+  .hq-section { margin-bottom:56px; }
+  .hq-section-label { display:inline-flex; align-items:center; gap:8px; background:var(--navy-pale); color:var(--navy); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; padding:4px 12px; border-radius:2px; margin-bottom:14px; border-left:3px solid var(--navy); }
+  .hq-section-title { font-family:'Playfair Display',serif; font-size:clamp(1.3rem,3vw,1.7rem); font-weight:700; color:var(--navy); margin-bottom:10px; line-height:1.25; }
+  .hq-section-title em { font-style:italic; color:var(--gold); }
+  .hq-section-text { font-size:0.98rem; line-height:1.85; color:var(--text); margin-bottom:20px; max-width:560px; }
+
+  /* Screenshot frame */
+  .hq-screen { 
+    border-radius:16px; overflow:hidden;
+    box-shadow: 0 8px 32px rgba(27,42,74,0.18), 0 2px 8px rgba(27,42,74,0.1);
+    border: 1px solid rgba(27,42,74,0.08);
+    max-width:320px;
+  }
+  .hq-screen img { width:100%; display:block; }
+
+  /* Two-col layout for wide screens */
+  .hq-feature { display:flex; flex-direction:column; gap:24px; align-items:flex-start; }
+  @media(min-width:600px) {
+    .hq-feature { flex-direction:row; align-items:center; gap:32px; }
+    .hq-feature.reverse { flex-direction:row-reverse; }
+    .hq-feature-text { flex:1; }
+    .hq-screen { flex:0 0 220px; max-width:220px; }
+  }
+
+  /* Feature grid for small cards */
+  .hq-features-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
+  .hq-feat-card { background:var(--linen); border:1px solid rgba(27,42,74,0.08); border-radius:6px; padding:14px 16px; }
+  .hq-feat-card .feat-icon { font-size:1.4rem; margin-bottom:6px; }
+  .hq-feat-card .feat-name { font-family:'Playfair Display',serif; font-size:0.9rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .hq-feat-card .feat-desc { font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+  @media(min-width:500px) { .hq-features-grid { grid-template-columns:repeat(3,1fr); } }
+
+  /* CTA */
+  .hq-cta { background:var(--navy); border-radius:8px; padding:32px 28px; text-align:center; margin-top:48px; }
+  .hq-cta h3 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:#F7F3E8; margin-bottom:10px; }
+  .hq-cta h3 em { font-style:italic; color:var(--gold-light); }
+  .hq-cta p { font-style:italic; color:rgba(247,243,232,0.7); font-size:0.95rem; margin-bottom:20px; line-height:1.6; }
+  .hq-cta-btn { display:inline-block; padding:11px 30px; background:var(--gold); color:#F7F3E8; font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; border-radius:4px; transition:background .2s; }
+  .hq-cta-btn:hover { background:var(--gold-light); }
+
+  /* Divider between sections */
+  .section-divider { width:100%; height:1px; background:linear-gradient(90deg,transparent,rgba(27,42,74,0.12),transparent); margin:8px 0 48px; }
 </style>
 </head>
 <body>
@@ -83,11 +111,10 @@
   <div class="drawer-logo"><img src="logo.png" alt="Bootstrap Beekeeping"></div>
   <div class="drawer-divider"></div>
   <a href="index.html">Home</a>
-<a href="about.html">Our Story</a>
-<a href="apiary.html">Our Apiary</a>
-<a href="apiaryhq.html" class="active">Apiary HQ</a>
-<a href="honey.html">Honey &amp; Woodware</a>
-
+  <a href="about.html">Our Story</a>
+  <a href="apiary.html">Our Apiary</a>
+  <a href="apiaryhq.html" class="active">Apiary HQ</a>
+  <a href="honey.html">Honey &amp; Woodware</a>
 </nav>
 <script>
   const hamburger=document.getElementById('hamburger');
@@ -97,14 +124,86 @@
   function closeMenu(){hamburger.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('open');}
   hamburger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
 </script>
+
 <div class="page-wrap"><div class="page-inner">
   <div class="page-logo"><img src="logo.png" alt="Bootstrap Beekeeping"></div>
-  <div class="uc-wrap">
-    <div class="uc-hex">📋</div>
-    <div class="uc-rule"><div class="uc-rule-navy"></div><div class="uc-rule-gold"></div></div>
-    <h1 class="uc-title">Apiary HQ<br><em>Coming Soon</em></h1>
-    <p class="uc-sub">A beekeeping management app built from the ground up. Launching soon.</p>
+
+  <!-- HERO -->
+  <div class="hq-hero">
+    <div class="hq-label">Apiary HQ</div>
+    <h1 class="hq-title">Your Apiary.<br><em>Fully Managed.</em></h1>
+    <p class="hq-desc">Apiary HQ is a beekeeping management app built from the ground up by a beekeeper, for beekeepers. Everything you need to run your apiary — in one place, on any device.</p>
+    <div class="hq-rule"><div class="hq-rule-navy"></div><div class="hq-rule-gold"></div></div>
   </div>
+
+  <!-- SECTION 1: DASHBOARD -->
+  <div class="hq-section">
+    <div class="hq-feature">
+      <div class="hq-screen">
+        <img src="images/apiaryhq-dashboard.jpg" alt="Apiary HQ Dashboard">
+      </div>
+      <div class="hq-feature-text">
+        <div class="hq-section-label">📊 Dashboard</div>
+        <h2 class="hq-section-title">Everything at a <em>Glance</em></h2>
+        <p class="hq-section-text">The dashboard gives you a live snapshot of your apiary — current weather, fly score, pollen forecast, and hive status all in one view. Know before you go whether conditions are right for an inspection.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+
+  <!-- SECTION 2: INSPECTIONS -->
+  <div class="hq-section">
+    <div class="hq-feature reverse">
+      <div class="hq-screen">
+        <img src="images/apiaryhq-inspections.jpg" alt="Apiary HQ Inspections">
+      </div>
+      <div class="hq-feature-text">
+        <div class="hq-section-label">🔍 Inspections</div>
+        <h2 class="hq-section-title">Track Every <em>Frame</em></h2>
+        <p class="hq-section-text">Log inspections with queen status, population, brood, honey stores, feeding records, and notes. Export to PDF or CSV. Compare hives side by side. Your inspection history, always at hand.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+
+  <!-- SECTION 3: GUIDED + FEATURES GRID -->
+  <div class="hq-section">
+    <div class="hq-feature">
+      <div class="hq-screen">
+        <img src="images/apiaryhq-guided.jpg" alt="Apiary HQ Guided Walkthrough">
+      </div>
+      <div class="hq-feature-text">
+        <div class="hq-section-label">🧭 Guided Walkthrough</div>
+        <h2 class="hq-section-title">Step by Step, <em>Every Time</em></h2>
+        <p class="hq-section-text">Choose a guided walkthrough for step-by-step inspection guidance, or quick entry when you know what you are doing. Built for new beekeepers and experienced hands alike.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+
+  <!-- SECTION 4: FEATURES GRID -->
+  <div class="hq-section">
+    <div class="hq-section-label">⚙️ Everything Included</div>
+    <h2 class="hq-section-title">Built to Run Your <em>Whole Operation</em></h2>
+    <p class="hq-section-text">Apiary HQ goes beyond basic inspection logging. Every tool you need is one level deep — powerful but never cluttered.</p>
+    <div class="hq-features-grid">
+      <div class="hq-feat-card"><div class="feat-icon">💰</div><div class="feat-name">Finance</div><div class="feat-desc">Track expenses and income across your apiary</div></div>
+      <div class="hq-feat-card"><div class="feat-icon">🔔</div><div class="feat-name">Reminders</div><div class="feat-desc">Smart auto-reminders tied to your inspection schedule</div></div>
+      <div class="hq-feat-card"><div class="feat-icon">📄</div><div class="feat-name">Documents</div><div class="feat-desc">Store licenses, certs, and brand assets in one place</div></div>
+      <div class="hq-feat-card"><div class="feat-icon">👥</div><div class="feat-name">Contacts</div><div class="feat-desc">Keep your vets, suppliers, and mentors organized</div></div>
+      <div class="hq-feat-card"><div class="feat-icon">📚</div><div class="feat-name">Library</div><div class="feat-desc">Reference guides and treatment information built in</div></div>
+      <div class="hq-feat-card"><div class="feat-icon">📶</div><div class="feat-name">Offline</div><div class="feat-desc">Works in the bee yard with no signal, syncs when back online</div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="hq-cta">
+    <h3>Be an <em>Early Tester</em></h3>
+    <p>Apiary HQ is currently in active development and will be opening up to a limited group of alpha testers soon. It runs on iPhone, Android, Mac, and PC — and works offline in the bee yard, syncing when you're back in range.</p>
+    <p style="margin-top:-8px;">If you're interested in getting early access and helping shape the app, we'd love to hear from you.</p>
+    <a class="hq-cta-btn" href="mailto:Bootstrapbeekeeping@gmail.com">Sign Up to Test</a>
+  </div>
+
 </div></div>
 </body>
 </html>
