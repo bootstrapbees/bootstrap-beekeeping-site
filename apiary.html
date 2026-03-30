@@ -86,6 +86,100 @@
   .post-gallery img { width:100%; height:180px; object-fit:cover; border-radius:3px; display:block; }
   .post-gallery figcaption { font-size:0.75rem; font-style:italic; color:var(--text-muted); margin-top:6px; line-height:1.4; }
   @media(max-width:480px) { .post-gallery { grid-template-columns:1fr; } .post-gallery img { height:220px; } }
+
+  .post-highlight {
+    position: relative;
+    background: var(--navy-pale);
+    border-left: 4px solid var(--navy);
+    border-radius: 0 4px 4px 0;
+    padding: 18px 22px 18px 24px;
+    margin: 1.8em 0;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 1.02rem;
+    line-height: 1.85;
+  }
+  .post-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--navy), var(--gold));
+    border-radius: 2px 0 0 2px;
+  }
+  .post-highlight-gold {
+    position: relative;
+    background: #FDF6E3;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 18px 22px 18px 24px;
+    margin: 1.8em 0;
+    color: var(--amber);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    position: relative;
+    background: var(--navy-pale);
+    border-left: 4px solid var(--navy);
+    border-radius: 0 4px 4px 0;
+    padding: 18px 22px 18px 24px;
+    margin: 1.8em 0;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 1.02rem;
+    line-height: 1.85;
+  }
+  .post-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--navy), var(--gold));
+    border-radius: 2px 0 0 2px;
+  }
+  .post-highlight-gold {
+    position: relative;
+    background: #FDF6E3;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 18px 22px 18px 24px;
+    margin: 1.8em 0;
+    color: var(--amber);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    font-style: italic;
+  }
+
+  .post-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 8px 0 40px;
+  }
+  .post-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--navy), var(--gold), var(--navy), transparent);
+    opacity: 0.35;
+    max-width: 180px;
+  }
+  .post-divider-center {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .post-divider-hex {
+    width: 10px; height: 11px;
+    clip-path: polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);
+  }
+  .post-divider-hex.n { background: var(--navy); opacity: 0.5; }
+  .post-divider-hex.g { background: var(--gold); opacity: 0.7; }
+  .post-divider-hex.sm { width: 7px; height: 8px; }
+
 </style>
 </head>
 <body>
@@ -123,6 +217,60 @@
     <div class="apiary-rule"><div class="apiary-rule-navy"></div><div class="apiary-rule-gold"></div></div>
   </div>
 
+
+  <!-- POST 3 -->
+  <article class="post-card">
+    <img class="post-img" src="images/post3-frames2.jpg" alt="Frames covered in bees during day 3 queen check">
+    <div class="post-caption">Day 3 — lifting the cover just enough to check in. Both hives were busy, and it showed.</div>
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-date">March 2026</span>
+        <div class="post-dot"></div>
+        <span class="post-tag">Queen Check</span>
+      </div>
+      <h2 class="post-title">Day 3 — A Quick Look and a Good Sign</h2>
+      <div class="post-content">
+        <p>Day three called for a quick, low-disturbance check — just enough to confirm both queens had been released and that things were moving in the right direction. The weather was overcast with a slight breeze, not ideal but workable. Minimal smoke, in and out, no lingering.</p>
+        <div class="post-highlight">
+          Both queens had been released. The colonies were already drawing comb on the wired wax foundation — more progress than I expected to see this early. That kind of early comb work is one of the better signs a new package can give you.
+        </div>
+        <div class="post-gallery">
+          <figure>
+            <img src="images/post3-frames1.jpg" alt="Bees clustered between frames on day 3">
+            <figcaption>Bees working the space between frames — a healthy, busy cluster.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/post3-washcups.jpg" alt="Alcohol wash cups and equipment">
+            <figcaption>Alcohol wash cups ready — baseline mite counts coming up at the three-week mark.</figcaption>
+          </figure>
+        </div>
+        <p>The frames themselves looked good. Bees were covering the foundation and putting it to work. There is something satisfying about seeing wax being drawn out on foundation you installed yourself just days before — it means the colony has accepted the space and is committing to it.</p>
+        <div class="post-highlight-gold">
+          We also noticed foragers coming back to both hives loaded with pollen. At this stage that is one of the clearest signs that a queen is present and the colony believes it has a future worth working for.
+        </div>
+        <p>The alcohol wash cups are staged and ready. The plan is a baseline mite count around the three-week mark, which will give us a true read on where things stand before we make any treatment decisions. For now, the priority is letting both colonies settle in and build without unnecessary interference.</p>
+        <p class="closing">It was a short visit — maybe ten minutes across both hives. Sometimes that is exactly the right amount. They did not need me in there. They just needed me to check in and get out of the way.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FIELD NOTE -->
+  <div class="post-card" style="overflow:hidden; margin-bottom:40px;">
+    <img class="post-img" src="images/post3-forager.jpg" alt="Honey bee foraging on salvia" style="max-height:480px; object-fit:cover;">
+    <div class="post-caption" style="font-size:0.82rem;">Caught one of ours working the salvia nearby. Pollen coming in means queens are laying — the colonies are already thinking ahead.</div>
+  </div>
+
+
+  <div class="post-divider">
+    <div class="post-divider-line"></div>
+    <div class="post-divider-center">
+      <div class="post-divider-hex n sm"></div>
+      <div class="post-divider-hex g"></div>
+      <div class="post-divider-hex n sm"></div>
+    </div>
+    <div class="post-divider-line"></div>
+  </div>
+
   <!-- POST 2 -->
   <article class="post-card">
     <img class="post-img" src="images/post2-hives.jpg" alt="Both hives active 24 hours after install">
@@ -153,6 +301,17 @@
       </div>
     </div>
   </article>
+
+
+  <div class="post-divider">
+    <div class="post-divider-line"></div>
+    <div class="post-divider-center">
+      <div class="post-divider-hex n sm"></div>
+      <div class="post-divider-hex g"></div>
+      <div class="post-divider-hex n sm"></div>
+    </div>
+    <div class="post-divider-line"></div>
+  </div>
 
   <!-- POST 1 -->
   <article class="post-card">

@@ -99,6 +99,43 @@
     box-shadow: 0 0px 0 #0d1926, 0 2px 4px rgba(0,0,0,0.2);
   }
   @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+  .landing-photo-band {
+    width: 100%;
+    max-width: 420px;
+    margin: 24px 0 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(27,42,74,0.15);
+  }
+  .landing-photo-band img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
+  .landing-photo-band::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, 
+      rgba(27,42,74,0.08) 0%, 
+      transparent 40%, 
+      transparent 60%,
+      rgba(27,42,74,0.12) 100%);
+    pointer-events: none;
+  }
+  .landing-photo-caption {
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+
 </style>
 </head>
 <body>
@@ -133,6 +170,10 @@
   <div class="divider"><div class="divider-line"></div><span class="divider-hex">⬡</span><div class="divider-line r"></div></div>
   <h1 class="headline">Something <em>Sweet</em><br>is Coming</h1>
   <p class="tagline">Real beekeeping. Real talk.<br>Built from the ground up, one frame at a time.</p>
+  <div class="landing-photo-band">
+    <img src="images/post3-forager.jpg" alt="Honey bee foraging on salvia">
+  </div>
+  <p class="landing-photo-caption">One of ours, working the salvia.</p>
   <div class="comb-row">
     <div class="comb-cell n"></div><div class="comb-cell g"></div>
     <div class="comb-cell gd"></div><div class="comb-cell n"></div>
