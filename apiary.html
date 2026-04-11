@@ -68,7 +68,7 @@
   .apiary-rule { display:flex; width:80px; margin:16px auto 0; }
   .apiary-rule-navy { flex:2; height:3px; background:var(--navy); border-radius:2px 0 0 2px; }
   .apiary-rule-gold { flex:1; height:3px; background:var(--gold); border-radius:0 2px 2px 0; }
-  .post-card { background:#F7F3E8; border:1px solid rgba(27,42,74,0.1); border-radius:4px; overflow:hidden; margin-bottom:40px; box-shadow:0 2px 16px rgba(27,42,74,0.07); }
+  .post-card { background:#F7F3E8; border:1px solid rgba(27,42,74,0.1); border-radius:4px; overflow:hidden; margin-bottom:0; box-shadow:0 2px 16px rgba(27,42,74,0.07); }
   .post-img { width:100%; max-height:420px; object-fit:cover; display:block; }
   .post-body { padding:28px 28px 32px; }
   .post-meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
@@ -120,45 +120,12 @@
     font-style: italic;
   }
 
-  .post-highlight {
-    position: relative;
-    background: var(--navy-pale);
-    border-left: 4px solid var(--navy);
-    border-radius: 0 4px 4px 0;
-    padding: 18px 22px 18px 24px;
-    margin: 1.8em 0;
-    font-style: italic;
-    color: var(--navy);
-    font-size: 1.02rem;
-    line-height: 1.85;
-  }
-  .post-highlight::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, var(--navy), var(--gold));
-    border-radius: 2px 0 0 2px;
-  }
-  .post-highlight-gold {
-    position: relative;
-    background: #FDF6E3;
-    border-left: 4px solid var(--gold);
-    border-radius: 0 4px 4px 0;
-    padding: 18px 22px 18px 24px;
-    margin: 1.8em 0;
-    color: var(--amber);
-    font-size: 1.02rem;
-    line-height: 1.85;
-    font-style: italic;
-  }
-
   .post-divider {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin: 8px 0 40px;
+    margin: 40px 0;
   }
   .post-divider-line {
     flex: 1;
@@ -217,7 +184,42 @@
     <div class="apiary-rule"><div class="apiary-rule-navy"></div><div class="apiary-rule-gold"></div></div>
   </div>
 
+  <!-- POST 5 -->
+  <article class="post-card">
+    <img class="post-img" src="images/post5-inspection.jpg" alt="First full hive inspection at Bootstrap Beekeeping apiary">
+    <div class="post-caption">First full inspection — eleven days in, and both hives had a story worth reading.</div>
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-date">April 7, 2026</span>
+        <div class="post-dot"></div>
+        <span class="post-tag">First Inspection</span>
+      </div>
+      <h2 class="post-title">Opening the Books — Our First Full Inspection</h2>
+      <div class="post-content">
+        <p>Eleven days after install, the weather finally lined up — sunny, a light breeze, warm enough that the bees were foraging hard. That kind of day makes everything easier. The colonies were calm from the moment we cracked the first cover, and they stayed that way through the whole inspection.</p>
+        <div class="post-highlight-gold">
+          Both hives had bees drawing wax on six foundations. Eleven days in, and they were already committed — comb being pulled out across most of the box, shaped correctly, the way healthy bees work when they have a queen worth working for.
+        </div>
+        <p>We pulled frames one at a time and read what was there. The brood pattern stopped me. Capped cells in a solid, unbroken arc, and surrounding them — laid out in a clean ring — open cells with young larvae curled at the bottom. That arrangement tells you everything. It means the queen is laying consistently, the workers are accepting the eggs, and the colony is moving forward on schedule.</p>
+        <div class="post-highlight">
+          Solid capped brood with healthy larvae in a tight pattern around it is one of the clearest signs of a productive, accepted queen. You are not guessing anymore — the comb is telling you directly.
+        </div>
+        <p>We saw the same story in both hives. That matters. Two packages, two queens, two colonies running parallel and both showing the same positive signs. At this stage of a first year, that kind of consistency is something to be grateful for.</p>
+        <p>The bees themselves were calm throughout — no defensive clustering, no alarm pheromone in the air. Just steady, purposeful movement. On a breezy day like that, calm bees say something good about the temperament of what you are working with.</p>
+        <p class="closing">The first full inspection is the one where beekeeping stops being theory. You are holding a frame with your own hands, reading comb that the bees drew from foundation you installed yourself, looking at brood that tells you a colony is alive and building. There is nothing quite like it. We are eleven days in. Both hives are doing exactly what they should be doing.</p>
+      </div>
+    </div>
+  </article>
 
+  <div class="post-divider">
+    <div class="post-divider-line"></div>
+    <div class="post-divider-center">
+      <div class="post-divider-hex n sm"></div>
+      <div class="post-divider-hex g"></div>
+      <div class="post-divider-hex n sm"></div>
+    </div>
+    <div class="post-divider-line"></div>
+  </div>
 
   <!-- POST 4 -->
   <article class="post-card">
@@ -240,6 +242,16 @@
       </div>
     </div>
   </article>
+
+  <div class="post-divider">
+    <div class="post-divider-line"></div>
+    <div class="post-divider-center">
+      <div class="post-divider-hex n sm"></div>
+      <div class="post-divider-hex g"></div>
+      <div class="post-divider-hex n sm"></div>
+    </div>
+    <div class="post-divider-line"></div>
+  </div>
 
   <!-- POST 3 -->
   <article class="post-card">
@@ -277,12 +289,21 @@
     </div>
   </article>
 
+  <div class="post-divider">
+    <div class="post-divider-line"></div>
+    <div class="post-divider-center">
+      <div class="post-divider-hex n sm"></div>
+      <div class="post-divider-hex g"></div>
+      <div class="post-divider-hex n sm"></div>
+    </div>
+    <div class="post-divider-line"></div>
+  </div>
+
   <!-- FIELD NOTE -->
-  <div class="post-card" style="overflow:hidden; margin-bottom:40px;">
+  <div class="post-card" style="overflow:hidden;">
     <img class="post-img" src="images/post3-forager.jpg" alt="Honey bee foraging on salvia" style="max-height:480px; object-fit:cover;">
     <div class="post-caption" style="font-size:0.82rem;">Caught one of ours working the salvia nearby. Pollen coming in means queens are laying — the colonies are already thinking ahead.</div>
   </div>
-
 
   <div class="post-divider">
     <div class="post-divider-line"></div>
@@ -324,7 +345,6 @@
       </div>
     </div>
   </article>
-
 
   <div class="post-divider">
     <div class="post-divider-line"></div>
