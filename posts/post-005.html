@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening the Books — Our First Full Inspection — Bootstrap Beekeeping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#F7F3E8; --linen:#F0E8D5; --navy:#1B2A4A; --navy-light:#2C4070; --navy-pale:#E8EDF5; --gold:#C8860A; --gold-light:#E8A020; --amber:#8B5E0A; --text:#2A1F0E; --text-muted:#6B5A3E; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:#F7F3E8; color:var(--text); font-family:'Lora',Georgia,serif; min-height:100vh; overflow-x:hidden; }
+  body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.09'/%3E%3C/svg%3E"); pointer-events:none; z-index:2; }
+  .top-banner { position:fixed; top:0; left:0; right:0; z-index:200; background:var(--navy); display:flex; align-items:center; justify-content:center; padding:8px 20px; gap:10px; height:40px; }
+  .top-banner span { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,246,238,0.75); }
+  .top-banner .dot { width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.7; }
+  .bottom-strip { position:fixed; bottom:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 40%,var(--amber) 60%,var(--navy) 100%); z-index:200; }
+  .hamburger { position:fixed; top:6px; left:14px; z-index:300; background:none; border:none; cursor:pointer; display:flex; flex-direction:column; justify-content:center; gap:5px; padding:4px; width:32px; height:28px; }
+  .hamburger span { display:block; width:22px; height:2px; background:rgba(250,246,238,0.85); border-radius:2px; transition:all 0.3s ease; transform-origin:center; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .drawer { position:fixed; top:0; left:0; bottom:0; width:260px; background:var(--navy); z-index:250; transform:translateX(-100%); transition:transform 0.3s ease; display:flex; flex-direction:column; padding-top:80px; padding-bottom:40px; }
+  .drawer.open { transform:translateX(0); }
+  .drawer-logo { display:flex; justify-content:center; margin-bottom:24px; padding:0 20px; }
+  .drawer-logo img { width:110px; }
+  .drawer-divider { width:40px; height:2px; margin:0 auto 24px; background:linear-gradient(90deg,var(--navy-light),var(--gold)); border-radius:2px; }
+  .drawer a { display:block; padding:13px 28px; font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(250,246,238,0.75); text-decoration:none; border-left:3px solid transparent; transition:color 0.2s,border-color 0.2s,background 0.2s; }
+  .drawer a:hover, .drawer a.active { color:#F7F3E8; border-left-color:var(--gold); background:rgba(255,255,255,0.05); }
+  .drawer-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:240; opacity:0; pointer-events:none; transition:opacity 0.3s; }
+  .drawer-overlay.open { opacity:1; pointer-events:all; }
+  .page-wrap { position:relative; z-index:1; min-height:100vh; background:#F7F3E8; padding:60px 24px 60px; }
+  .page-inner { max-width:680px; margin:0 auto; padding-top:20px; }
+  .page-logo { display:flex; justify-content:center; margin-bottom:10px; }
+  .page-logo img { width:140px; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; margin-bottom:28px; }
+  .back-link::before { content:'←'; }
+  .back-link:hover { color:var(--gold); }
+  .post-card { background:#F7F3E8; border:1px solid rgba(27,42,74,0.1); border-radius:4px; overflow:hidden; box-shadow:0 2px 16px rgba(27,42,74,0.07); }
+  .post-img { width:100%; max-height:420px; object-fit:cover; display:block; }
+  .post-body { padding:28px 28px 32px; }
+  .post-meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .post-date { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+  .post-dot { width:3px; height:3px; border-radius:50%; background:var(--gold); }
+  .post-tag { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--navy); background:var(--navy-pale); padding:2px 8px; border-radius:2px; }
+  .post-title { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,4vw,1.9rem); font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:18px; }
+  .post-content { font-size:1.02rem; line-height:1.9; color:var(--text); }
+  .post-content p { margin-bottom:1.4em; }
+  .post-content p:last-child { margin-bottom:0; }
+  .post-content p.closing { font-style:italic; color:var(--text-muted); border-top:1px solid rgba(27,42,74,0.1); padding-top:1.2em; margin-top:1.6em; }
+  .post-caption { font-size:0.78rem; font-style:italic; color:var(--text-muted); text-align:center; padding:10px 20px; background:var(--linen); border-bottom:1px solid rgba(27,42,74,0.07); }
+  .post-highlight { position:relative; background:var(--navy-pale); border-left:4px solid var(--navy); border-radius:0 4px 4px 0; padding:18px 22px 18px 24px; margin:1.8em 0; font-style:italic; color:var(--navy); font-size:1.02rem; line-height:1.85; }
+  .post-highlight::before { content:''; position:absolute; top:0; left:0; bottom:0; width:4px; background:linear-gradient(180deg,var(--navy),var(--gold)); border-radius:2px 0 0 2px; }
+  .post-highlight-gold { position:relative; background:#FDF6E3; border-left:4px solid var(--gold); border-radius:0 4px 4px 0; padding:18px 22px 18px 24px; margin:1.8em 0; color:var(--amber); font-size:1.02rem; line-height:1.85; font-style:italic; }
+</style>
+</head>
+<body>
+<div class="top-banner"><div class="dot"></div><span>Handcrafted Beekeeping — Alabama</span><div class="dot"></div></div>
+<div class="bottom-strip"></div>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<div class="drawer-overlay" id="overlay" onclick="closeMenu()"></div>
+<nav class="drawer" id="drawer">
+  <div class="drawer-logo"><img src="../logo.png" alt="Bootstrap Beekeeping"></div>
+  <div class="drawer-divider"></div>
+  <a href="../index.html">Home</a>
+  <a href="../about.html">Our Story</a>
+  <a href="../apiary.html" class="active">Our Apiary</a>
+  <a href="../apiaryhq.html">Apiary HQ</a>
+  <a href="../honey.html">Honey &amp; Woodware</a>
+</nav>
+<script>
+  const hamburger=document.getElementById('hamburger');
+  const drawer=document.getElementById('drawer');
+  const overlay=document.getElementById('overlay');
+  function openMenu(){hamburger.classList.add('open');drawer.classList.add('open');overlay.classList.add('open');}
+  function closeMenu(){hamburger.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('open');}
+  hamburger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
+</script>
+<div class="page-wrap"><div class="page-inner">
+  <div class="page-logo"><img src="../logo.png" alt="Bootstrap Beekeeping"></div>
+  <a href="../apiary.html" class="back-link">Back to Apiary</a>
+  <article class="post-card">
+    <img class="post-img" src="../images/post5-inspection.jpg" alt="First full hive inspection at Bootstrap Beekeeping apiary">
+    <div class="post-caption">First full inspection — eleven days in, and both hives had a story worth reading.</div>
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-date">April 7, 2026</span>
+        <div class="post-dot"></div>
+        <span class="post-tag">First Inspection</span>
+      </div>
+      <h1 class="post-title">Opening the Books — Our First Full Inspection</h1>
+      <div class="post-content">
+        <p>Eleven days after install, the weather finally lined up — sunny, a light breeze, warm enough that the bees were foraging hard. That kind of day makes everything easier. The colonies were calm from the moment we cracked the first cover, and they stayed that way through the whole inspection.</p>
+        <div class="post-highlight-gold">
+          Both hives had bees drawing wax on six foundations. Eleven days in, and they were already committed — comb being pulled out across most of the box, shaped correctly, the way healthy bees work when they have a queen worth working for.
+        </div>
+        <p>We pulled frames one at a time and read what was there. The brood pattern stopped me. Capped cells in a solid, unbroken arc, and surrounding them — laid out in a clean ring — open cells with young larvae curled at the bottom. That arrangement tells you everything. It means the queen is laying consistently, the workers are accepting the eggs, and the colony is moving forward on schedule.</p>
+        <div class="post-highlight">
+          Solid capped brood with healthy larvae in a tight pattern around it is one of the clearest signs of a productive, accepted queen. You are not guessing anymore — the comb is telling you directly.
+        </div>
+        <p>We saw the same story in both hives. That matters. Two packages, two queens, two colonies running parallel and both showing the same positive signs. At this stage of a first year, that kind of consistency is something to be grateful for.</p>
+        <p>The bees themselves were calm throughout — no defensive clustering, no alarm pheromone in the air. Just steady, purposeful movement. On a breezy day like that, calm bees say something good about the temperament of what you are working with.</p>
+        <p class="closing">The first full inspection is the one where beekeeping stops being theory. You are holding a frame with your own hands, reading comb that the bees drew from foundation you installed yourself, looking at brood that tells you a colony is alive and building. There is nothing quite like it. We are eleven days in. Both hives are doing exactly what they should be doing.</p>
+      </div>
+    </div>
+  </article>
+</div></div>
+</body>
+</html>

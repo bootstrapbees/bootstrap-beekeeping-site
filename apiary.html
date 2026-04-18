@@ -21,32 +21,16 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.09'/%3E%3C/svg%3E");
     pointer-events:none; z-index:2;
   }
-  .top-banner {
-    position:fixed; top:0; left:0; right:0; z-index:200;
-    background:var(--navy);
-    display:flex; align-items:center; justify-content:center;
-    padding:8px 20px; gap:10px; height:40px;
-  }
+  .top-banner { position:fixed; top:0; left:0; right:0; z-index:200; background:var(--navy); display:flex; align-items:center; justify-content:center; padding:8px 20px; gap:10px; height:40px; }
   .top-banner span { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,246,238,0.75); }
   .top-banner .dot { width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.7; }
   .bottom-strip { position:fixed; bottom:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 40%,var(--amber) 60%,var(--navy) 100%); z-index:200; }
-  .hamburger {
-    position:fixed; top:6px; left:14px; z-index:300;
-    background:none; border:none; cursor:pointer;
-    display:flex; flex-direction:column; justify-content:center; gap:5px;
-    padding:4px; width:32px; height:28px;
-  }
+  .hamburger { position:fixed; top:6px; left:14px; z-index:300; background:none; border:none; cursor:pointer; display:flex; flex-direction:column; justify-content:center; gap:5px; padding:4px; width:32px; height:28px; }
   .hamburger span { display:block; width:22px; height:2px; background:rgba(250,246,238,0.85); border-radius:2px; transition:all 0.3s ease; transform-origin:center; }
   .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity:0; }
   .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-  .drawer {
-    position:fixed; top:0; left:0; bottom:0; width:260px;
-    background:var(--navy); z-index:250;
-    transform:translateX(-100%); transition:transform 0.3s ease;
-    display:flex; flex-direction:column;
-    padding-top:80px; padding-bottom:40px;
-  }
+  .drawer { position:fixed; top:0; left:0; bottom:0; width:260px; background:var(--navy); z-index:250; transform:translateX(-100%); transition:transform 0.3s ease; display:flex; flex-direction:column; padding-top:80px; padding-bottom:40px; }
   .drawer.open { transform:translateX(0); }
   .drawer-logo { display:flex; justify-content:center; margin-bottom:24px; padding:0 20px; }
   .drawer-logo img { width:110px; }
@@ -59,7 +43,6 @@
   .page-inner { max-width:680px; margin:0 auto; padding-top:20px; }
   .page-logo { display:flex; justify-content:center; margin-bottom:10px; }
   .page-logo img { width:140px; }
-
   .apiary-header { text-align:center; margin-bottom:40px; }
   .apiary-label { display:inline-block; background:var(--navy); color:rgba(250,246,238,0.8); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 14px; border-radius:2px; margin-bottom:14px; }
   .apiary-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,2.8rem); font-weight:900; color:var(--navy); line-height:1.15; margin-bottom:8px; }
@@ -68,104 +51,43 @@
   .apiary-rule { display:flex; width:80px; margin:16px auto 0; }
   .apiary-rule-navy { flex:2; height:3px; background:var(--navy); border-radius:2px 0 0 2px; }
   .apiary-rule-gold { flex:1; height:3px; background:var(--gold); border-radius:0 2px 2px 0; }
-  .post-card { background:#F7F3E8; border:1px solid rgba(27,42,74,0.1); border-radius:4px; overflow:hidden; margin-bottom:0; box-shadow:0 2px 16px rgba(27,42,74,0.07); }
-  .post-img { width:100%; max-height:420px; object-fit:cover; display:block; }
-  .post-body { padding:28px 28px 32px; }
-  .post-meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+
+  /* Post index cards */
+  .post-index-card { background:#F7F3E8; border:1px solid rgba(27,42,74,0.1); border-radius:4px; overflow:hidden; margin-bottom:28px; box-shadow:0 2px 16px rgba(27,42,74,0.07); text-decoration:none; display:block; transition:box-shadow 0.2s, transform 0.2s; }
+  .post-index-card:hover { box-shadow:0 6px 28px rgba(27,42,74,0.13); transform:translateY(-2px); }
+  .post-index-img { width:100%; max-height:280px; object-fit:cover; display:block; }
+  .post-index-body { padding:22px 24px 24px; }
+  .post-meta { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
   .post-date { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
   .post-dot { width:3px; height:3px; border-radius:50%; background:var(--gold); }
   .post-tag { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--navy); background:var(--navy-pale); padding:2px 8px; border-radius:2px; }
-  .post-title { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,4vw,1.9rem); font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:18px; }
-  .post-content { font-size:1.02rem; line-height:1.9; color:var(--text); }
-  .post-content p { margin-bottom:1.4em; }
-  .post-content p:last-child { margin-bottom:0; }
-  .post-content p.closing { font-style:italic; color:var(--text-muted); border-top:1px solid rgba(27,42,74,0.1); padding-top:1.2em; margin-top:1.6em; }
-  .post-caption { font-size:0.78rem; font-style:italic; color:var(--text-muted); text-align:center; padding:10px 20px; background:var(--linen); border-bottom:1px solid rgba(27,42,74,0.07); }
-  .post-gallery { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:1.6em 0; }
-  .post-gallery figure { margin:0; }
-  .post-gallery img { width:100%; height:180px; object-fit:cover; border-radius:3px; display:block; }
-  .post-gallery figcaption { font-size:0.75rem; font-style:italic; color:var(--text-muted); margin-top:6px; line-height:1.4; }
-  @media(max-width:480px) { .post-gallery { grid-template-columns:1fr; } .post-gallery img { height:220px; } }
+  .post-index-title { font-family:'Playfair Display',serif; font-size:clamp(1.2rem,3.5vw,1.6rem); font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:10px; }
+  .post-index-excerpt { font-size:0.95rem; line-height:1.8; color:var(--text-muted); margin-bottom:14px; }
+  .post-read-more { display:inline-flex; align-items:center; gap:6px; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+  .post-read-more::after { content:'→'; }
 
-  .post-highlight {
-    position: relative;
-    background: var(--navy-pale);
-    border-left: 4px solid var(--navy);
-    border-radius: 0 4px 4px 0;
-    padding: 18px 22px 18px 24px;
-    margin: 1.8em 0;
-    font-style: italic;
-    color: var(--navy);
-    font-size: 1.02rem;
-    line-height: 1.85;
-  }
-  .post-highlight::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, var(--navy), var(--gold));
-    border-radius: 2px 0 0 2px;
-  }
-  .post-highlight-gold {
-    position: relative;
-    background: #FDF6E3;
-    border-left: 4px solid var(--gold);
-    border-radius: 0 4px 4px 0;
-    padding: 18px 22px 18px 24px;
-    margin: 1.8em 0;
-    color: var(--amber);
-    font-size: 1.02rem;
-    line-height: 1.85;
-    font-style: italic;
-  }
-
-  .post-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin: 40px 0;
-  }
-  .post-divider-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--navy), var(--gold), var(--navy), transparent);
-    opacity: 0.35;
-    max-width: 180px;
-  }
-  .post-divider-center {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .post-divider-hex {
-    width: 10px; height: 11px;
-    clip-path: polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);
-  }
-  .post-divider-hex.n { background: var(--navy); opacity: 0.5; }
-  .post-divider-hex.g { background: var(--gold); opacity: 0.7; }
-  .post-divider-hex.sm { width: 7px; height: 8px; }
-
+  .post-divider { display:flex; align-items:center; justify-content:center; gap:12px; margin:8px 0 8px; }
+  .post-divider-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--navy),var(--gold),var(--navy),transparent); opacity:0.25; max-width:180px; }
+  .post-divider-center { display:flex; align-items:center; gap:6px; }
+  .post-divider-hex { width:10px; height:11px; clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%); }
+  .post-divider-hex.n { background:var(--navy); opacity:0.5; }
+  .post-divider-hex.g { background:var(--gold); opacity:0.7; }
+  .post-divider-hex.sm { width:7px; height:8px; }
 </style>
 </head>
 <body>
 <div class="top-banner"><div class="dot"></div><span>Handcrafted Beekeeping — Alabama</span><div class="dot"></div></div>
 <div class="bottom-strip"></div>
-
-<button class="hamburger" id="hamburger" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 <div class="drawer-overlay" id="overlay" onclick="closeMenu()"></div>
 <nav class="drawer" id="drawer">
   <div class="drawer-logo"><img src="logo.png" alt="Bootstrap Beekeeping"></div>
   <div class="drawer-divider"></div>
   <a href="index.html">Home</a>
-<a href="about.html">Our Story</a>
-<a href="apiary.html" class="active">Our Apiary</a>
-<a href="apiaryhq.html">Apiary HQ</a>
-<a href="honey.html">Honey &amp; Woodware</a>
-
+  <a href="about.html">Our Story</a>
+  <a href="apiary.html" class="active">Our Apiary</a>
+  <a href="apiaryhq.html">Apiary HQ</a>
+  <a href="honey.html">Honey &amp; Woodware</a>
 </nav>
 <script>
   const hamburger=document.getElementById('hamburger');
@@ -185,253 +107,104 @@
   </div>
 
   <!-- POST 6 -->
-  <article class="post-card">
-    <img class="post-img" src="images/post6-sawyers-brood.jpg" alt="Sawyer's hive brood frame during the three-week inspection">
-    <div class="post-caption">Sawyer's hive — three weeks in, and the brood frame tells the whole story. Capped cells wall to wall, bees packed deep.</div>
-    <div class="post-body">
+  <a href="posts/post-006.html" class="post-index-card">
+    <img class="post-index-img" src="images/post6-sawyers-brood.jpg" alt="Sawyer's hive brood frame during the three-week inspection">
+    <div class="post-index-body">
       <div class="post-meta">
         <span class="post-date">April 17, 2026</span>
         <div class="post-dot"></div>
         <span class="post-tag">Mite Baseline</span>
       </div>
-      <h2 class="post-title">Three Weeks In — The Mite Wash</h2>
-      <div class="post-content">
-        <p>Three weeks after install is when a new package colony crosses a line. The queen has been laying long enough that you have real capped brood — which means mites have places to hide and reproduce. It is the first moment when a mite count actually tells you something useful.</p>
-        <p>We ran an alcohol wash on both hives today. Half a cup of bees, a jar of isopropyl, sixty seconds of agitation, and you pour the wash through a mesh lid to count what falls out. It is not complicated, but it matters — this number is your baseline, the thing everything else gets measured against.</p>
-        <div class="post-highlight-gold">
-          Sawyer's hive: 3 mites per 300 bees — 1%. Josh's hive: 2 mites per 300 bees — under 1%. Both hives well below the 2% treatment threshold. No Apivar needed today.
-        </div>
-        <div class="post-gallery">
-          <figure>
-            <img src="images/post6-sawyers-frame.jpg" alt="Sawyer's hive frame with drawn comb and bees working">
-            <figcaption>Sawyer's hive — good comb coverage and a healthy population building steadily.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/post6-josh-bees.jpg" alt="Josh's hive showing dense bee population on brood frame">
-            <figcaption>Josh's hive — noticeably more bees at the same age. That colony is moving fast.</figcaption>
-          </figure>
-        </div>
-        <p>The two hives are running different speeds. Josh's colony has more bees, more capped brood, and is drawing comb faster than Sawyer's at the same point. That is not unusual — two queens from the same supplier can still lay at different rates, and a ten-day difference in tempo is nothing to worry about this early. What matters is that both colonies are healthy, both queens are productive, and both mite counts came back clean.</p>
-        <div class="post-highlight">
-          A clean baseline is not a reason to stop watching. More capped brood means more mite reproduction cycles ahead. These colonies will be rechecked in late May, right before the tulip poplar flow winds down — that is when the number that matters most will show itself.
-        </div>
-        <img class="post-img" src="images/post6-josh-brood.jpg" alt="Josh's hive brood frame showing capped brood and open cells" style="margin-top:1.6em; border-radius:3px;">
-        <p style="font-size:0.82rem; font-style:italic; color:var(--text-muted); text-align:center; margin-top:0.5em; margin-bottom:1.4em;">Josh's hive brood frame — capped cells in a solid crescent, open cells staged and ready. That queen is not wasting space.</p>
-        <p>We have got Apivar strips on hand if the late-May count crosses the line. For now, both hives stay on the same schedule — keep feeding until they do not need it, watch for the point where each colony is covering seven or eight frames, and add a second box before they run out of room. With tulip poplar coming in the next few weeks, that decision may come sooner than expected for at least one of them.</p>
-        <p class="closing">The mite wash is one of those things that sounds tedious until the first time you do it and realize you just got a real answer about something that could have quietly gone wrong without it. Two hives, two clean counts. We will take it.</p>
-        <img class="post-img" src="images/post6-feeder-box.jpg" alt="Custom top feeder box installed on hive" style="margin-top:1.6em; border-radius:3px;">
-        <p style="font-size:0.82rem; font-style:italic; color:var(--text-muted); text-align:center; margin-top:0.5em; margin-bottom:1.4em;">The new custom top feeder box — screened floor hole, jar access, deep box enclosure. A clean step up from the quart jar inner cover.</p>
-        <div class="post-highlight-gold" style="margin-top:1.8em;">
-          <strong>Update — same day:</strong> Opened both entrance reducers to the full slot. Swapped two frames in each hive for plastic foundation to give them more drawing room. Installed new custom top feeder boxes — a deep box with a screened floor hole and jar access, built to replace the quart jar inner cover setup. Cleaner, more protected, and a lot more capacity.
-        </div>
-      </div>
+      <div class="post-index-title">Three Weeks In — The Mite Wash</div>
+      <p class="post-index-excerpt">Three weeks after install is when a new package colony crosses a line. The queen has been laying long enough that you have real capped brood — which means mites have places to hide and reproduce. We ran an alcohol wash on both hives today.</p>
+      <span class="post-read-more">Read More</span>
     </div>
-  </article>
+  </a>
 
-  <div class="post-divider">
-    <div class="post-divider-line"></div>
-    <div class="post-divider-center">
-      <div class="post-divider-hex n sm"></div>
-      <div class="post-divider-hex g"></div>
-      <div class="post-divider-hex n sm"></div>
-    </div>
-    <div class="post-divider-line"></div>
-  </div>
+  <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-center"><div class="post-divider-hex n sm"></div><div class="post-divider-hex g"></div><div class="post-divider-hex n sm"></div></div><div class="post-divider-line"></div></div>
 
   <!-- POST 5 -->
-  <article class="post-card">
-    <img class="post-img" src="images/post5-inspection.jpg" alt="First full hive inspection at Bootstrap Beekeeping apiary">
-    <div class="post-caption">First full inspection — eleven days in, and both hives had a story worth reading.</div>
-    <div class="post-body">
+  <a href="posts/post-005.html" class="post-index-card">
+    <img class="post-index-img" src="images/post5-inspection.jpg" alt="First full hive inspection at Bootstrap Beekeeping apiary">
+    <div class="post-index-body">
       <div class="post-meta">
         <span class="post-date">April 7, 2026</span>
         <div class="post-dot"></div>
         <span class="post-tag">First Inspection</span>
       </div>
-      <h2 class="post-title">Opening the Books — Our First Full Inspection</h2>
-      <div class="post-content">
-        <p>Eleven days after install, the weather finally lined up — sunny, a light breeze, warm enough that the bees were foraging hard. That kind of day makes everything easier. The colonies were calm from the moment we cracked the first cover, and they stayed that way through the whole inspection.</p>
-        <div class="post-highlight-gold">
-          Both hives had bees drawing wax on six foundations. Eleven days in, and they were already committed — comb being pulled out across most of the box, shaped correctly, the way healthy bees work when they have a queen worth working for.
-        </div>
-        <p>We pulled frames one at a time and read what was there. The brood pattern stopped me. Capped cells in a solid, unbroken arc, and surrounding them — laid out in a clean ring — open cells with young larvae curled at the bottom. That arrangement tells you everything. It means the queen is laying consistently, the workers are accepting the eggs, and the colony is moving forward on schedule.</p>
-        <div class="post-highlight">
-          Solid capped brood with healthy larvae in a tight pattern around it is one of the clearest signs of a productive, accepted queen. You are not guessing anymore — the comb is telling you directly.
-        </div>
-        <p>We saw the same story in both hives. That matters. Two packages, two queens, two colonies running parallel and both showing the same positive signs. At this stage of a first year, that kind of consistency is something to be grateful for.</p>
-        <p>The bees themselves were calm throughout — no defensive clustering, no alarm pheromone in the air. Just steady, purposeful movement. On a breezy day like that, calm bees say something good about the temperament of what you are working with.</p>
-        <p class="closing">The first full inspection is the one where beekeeping stops being theory. You are holding a frame with your own hands, reading comb that the bees drew from foundation you installed yourself, looking at brood that tells you a colony is alive and building. There is nothing quite like it. We are eleven days in. Both hives are doing exactly what they should be doing.</p>
-      </div>
+      <div class="post-index-title">Opening the Books — Our First Full Inspection</div>
+      <p class="post-index-excerpt">Eleven days after install, the weather finally lined up — sunny, a light breeze, warm enough that the bees were foraging hard. The colonies were calm from the moment we cracked the first cover.</p>
+      <span class="post-read-more">Read More</span>
     </div>
-  </article>
+  </a>
 
-  <div class="post-divider">
-    <div class="post-divider-line"></div>
-    <div class="post-divider-center">
-      <div class="post-divider-hex n sm"></div>
-      <div class="post-divider-hex g"></div>
-      <div class="post-divider-hex n sm"></div>
-    </div>
-    <div class="post-divider-line"></div>
-  </div>
+  <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-center"><div class="post-divider-hex n sm"></div><div class="post-divider-hex g"></div><div class="post-divider-hex n sm"></div></div><div class="post-divider-line"></div></div>
 
   <!-- POST 4 -->
-  <article class="post-card">
-    <img class="post-img" src="images/post4-pollen.jpg" alt="Foragers returning to the hive loaded with pollen" style="max-height:500px; object-fit:cover; object-position:center top;">
-    <div class="post-caption">Foragers coming home loaded — those yellow pollen baskets tell the whole story.</div>
-    <div class="post-body">
+  <a href="posts/post-004.html" class="post-index-card">
+    <img class="post-index-img" src="images/post4-pollen.jpg" alt="Foragers returning to the hive loaded with pollen" style="object-position:center top;">
+    <div class="post-index-body">
       <div class="post-meta">
         <span class="post-date">April 2026</span>
         <div class="post-dot"></div>
         <span class="post-tag">Field Notes</span>
       </div>
-      <h2 class="post-title">They Are Bringing It Home</h2>
-      <div class="post-content">
-        <p>You do not need to open a hive to know things are going well. Sometimes you just watch the landing board.</p>
-        <div class="post-highlight-gold">
-          Those bright yellow pollen baskets mean the foragers have found something worth working for — and more importantly, that the queen is laying and the colony has young brood to feed.
-        </div>
-        <p>Pollen coming in is one of the clearest signs of a healthy, motivated colony. They are not hauling it in for storage — they need it now, for the brood being raised inside. Seeing this kind of traffic this early in the season is exactly what you want.</p>
-        <p class="closing">Some days the best thing a beekeeper can do is stand back and watch. Today was one of those days.</p>
-      </div>
+      <div class="post-index-title">They Are Bringing It Home</div>
+      <p class="post-index-excerpt">You do not need to open a hive to know things are going well. Sometimes you just watch the landing board. Those bright yellow pollen baskets tell the whole story.</p>
+      <span class="post-read-more">Read More</span>
     </div>
-  </article>
+  </a>
 
-  <div class="post-divider">
-    <div class="post-divider-line"></div>
-    <div class="post-divider-center">
-      <div class="post-divider-hex n sm"></div>
-      <div class="post-divider-hex g"></div>
-      <div class="post-divider-hex n sm"></div>
-    </div>
-    <div class="post-divider-line"></div>
-  </div>
+  <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-center"><div class="post-divider-hex n sm"></div><div class="post-divider-hex g"></div><div class="post-divider-hex n sm"></div></div><div class="post-divider-line"></div></div>
 
   <!-- POST 3 -->
-  <article class="post-card">
-    <img class="post-img" src="images/post3-frames2.jpg" alt="Frames covered in bees during day 3 queen check">
-    <div class="post-caption">Day 3 — lifting the cover just enough to check in. Both hives were busy, and it showed.</div>
-    <div class="post-body">
+  <a href="posts/post-003.html" class="post-index-card">
+    <img class="post-index-img" src="images/post3-frames2.jpg" alt="Frames covered in bees during day 3 queen check">
+    <div class="post-index-body">
       <div class="post-meta">
         <span class="post-date">March 2026</span>
         <div class="post-dot"></div>
         <span class="post-tag">Queen Check</span>
       </div>
-      <h2 class="post-title">Day 3 — A Quick Look and a Good Sign</h2>
-      <div class="post-content">
-        <p>Day three called for a quick, low-disturbance check — just enough to confirm both queens had been released and that things were moving in the right direction. The weather was overcast with a slight breeze, not ideal but workable. Minimal smoke, in and out, no lingering.</p>
-        <div class="post-highlight">
-          Both queens had been released. The colonies were already drawing comb on the wired wax foundation — more progress than I expected to see this early. That kind of early comb work is one of the better signs a new package can give you.
-        </div>
-        <div class="post-gallery">
-          <figure>
-            <img src="images/post3-frames1.jpg" alt="Bees clustered between frames on day 3">
-            <figcaption>Bees working the space between frames — a healthy, busy cluster.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/post3-washcups.jpg" alt="Alcohol wash cups and equipment">
-            <figcaption>Both queens successfully released — colonies accepted and building from day one.</figcaption>
-          </figure>
-        </div>
-        <p>The frames themselves looked good. Bees were covering the foundation and putting it to work. There is something satisfying about seeing wax being drawn out on foundation you installed yourself just days before — it means the colony has accepted the space and is committing to it.</p>
-        <div class="post-highlight-gold">
-          We also noticed foragers coming back to both hives loaded with pollen. At this stage that is one of the clearest signs that a queen is present and the colony believes it has a future worth working for.
-        </div>
-        <p>The alcohol wash cups are staged and ready. The plan is a baseline mite count around the three-week mark, which will give us a true read on where things stand before we make any treatment decisions. For now, the priority is letting both colonies settle in and build without unnecessary interference.</p>
-        <p class="closing">It was a short visit — maybe ten minutes across both hives. Sometimes that is exactly the right amount. They did not need me in there. They just needed me to check in and get out of the way.</p>
-      </div>
+      <div class="post-index-title">Day 3 — A Quick Look and a Good Sign</div>
+      <p class="post-index-excerpt">Day three called for a quick, low-disturbance check — just enough to confirm both queens had been released and that things were moving in the right direction.</p>
+      <span class="post-read-more">Read More</span>
     </div>
-  </article>
+  </a>
 
-  <div class="post-divider">
-    <div class="post-divider-line"></div>
-    <div class="post-divider-center">
-      <div class="post-divider-hex n sm"></div>
-      <div class="post-divider-hex g"></div>
-      <div class="post-divider-hex n sm"></div>
-    </div>
-    <div class="post-divider-line"></div>
-  </div>
-
-  <!-- FIELD NOTE -->
-  <div class="post-card" style="overflow:hidden;">
-    <img class="post-img" src="images/post3-forager.jpg" alt="Honey bee foraging on salvia" style="max-height:480px; object-fit:cover;">
-    <div class="post-caption" style="font-size:0.82rem;">Caught one of ours working the salvia nearby. Pollen coming in means queens are laying — the colonies are already thinking ahead.</div>
-  </div>
-
-  <div class="post-divider">
-    <div class="post-divider-line"></div>
-    <div class="post-divider-center">
-      <div class="post-divider-hex n sm"></div>
-      <div class="post-divider-hex g"></div>
-      <div class="post-divider-hex n sm"></div>
-    </div>
-    <div class="post-divider-line"></div>
-  </div>
+  <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-center"><div class="post-divider-hex n sm"></div><div class="post-divider-hex g"></div><div class="post-divider-hex n sm"></div></div><div class="post-divider-line"></div></div>
 
   <!-- POST 2 -->
-  <article class="post-card">
-    <img class="post-img" src="images/post2-hives.jpg" alt="Both hives active 24 hours after install">
-    <div class="post-caption">Both colonies at the entrance, 24 hours after install. Already coming and going like they own the place.</div>
-    <div class="post-body">
+  <a href="posts/post-002.html" class="post-index-card">
+    <img class="post-index-img" src="images/post2-hives.jpg" alt="Both hives active 24 hours after install">
+    <div class="post-index-body">
       <div class="post-meta">
         <span class="post-date">March 2026</span>
         <div class="post-dot"></div>
         <span class="post-tag">Day 1 Check</span>
       </div>
-      <h2 class="post-title">24 Hours In — So Far, So Good</h2>
-      <div class="post-content">
-        <p>By the next morning both hives had bees moving in and out of the entrance with purpose. Not frantic, not clustered in confusion — just working. That steady, deliberate traffic is exactly what you want to see.</p>
-        <p>Our custom inner cover lets us check the feeders without disturbing the bees at all.</p>
-        <div class="post-gallery">
-          <figure>
-            <img src="images/post2-feeder.jpg" alt="Bees working the jar feeders through the inner cover">
-            <figcaption>Bees on the syrup jars through the custom inner cover — they found the feeders fast.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/post2-water.jpg" alt="Bees working the in-ground water station">
-            <figcaption>The in-ground water station already busy — dozens of bees working the floating boards.</figcaption>
-          </figure>
-        </div>
-        <p>Both sets of jars had bees working them — they found the syrup quickly and were already taking it down. Good sign.</p>
-        <p>The water station was the other thing that made me feel good. We built it in-ground with floating boards for landing space, and by day one it was already busy. Bees need water more than most new beekeepers realize, and having them locked onto a clean source this early means they are less likely to go looking for one somewhere less ideal.</p>
-        <p class="closing">One day down. A lot of season left to go. But right now everything looks the way it should, and that is enough.</p>
-      </div>
+      <div class="post-index-title">24 Hours In — So Far, So Good</div>
+      <p class="post-index-excerpt">By the next morning both hives had bees moving in and out of the entrance with purpose. Not frantic, not clustered in confusion — just working. That steady, deliberate traffic is exactly what you want to see.</p>
+      <span class="post-read-more">Read More</span>
     </div>
-  </article>
+  </a>
 
-  <div class="post-divider">
-    <div class="post-divider-line"></div>
-    <div class="post-divider-center">
-      <div class="post-divider-hex n sm"></div>
-      <div class="post-divider-hex g"></div>
-      <div class="post-divider-hex n sm"></div>
-    </div>
-    <div class="post-divider-line"></div>
-  </div>
+  <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-center"><div class="post-divider-hex n sm"></div><div class="post-divider-hex g"></div><div class="post-divider-hex n sm"></div></div><div class="post-divider-line"></div></div>
 
   <!-- POST 1 -->
-  <article class="post-card">
-    <img class="post-img" src="images/post1-install.jpg" alt="Package install day at the Bootstrap Beekeeping apiary">
-    <div class="post-caption">Install day — two packages, two hives, and a whole lot of buzzing. The hive stand on the right reads "In Memory of PawPaw."</div>
-    <div class="post-body">
+  <a href="posts/post-001.html" class="post-index-card">
+    <img class="post-index-img" src="images/post1-install.jpg" alt="Package install day at the Bootstrap Beekeeping apiary">
+    <div class="post-index-body">
       <div class="post-meta">
         <span class="post-date">March 2026</span>
         <div class="post-dot"></div>
         <span class="post-tag">Package Install</span>
       </div>
-      <h2 class="post-title">The First Shake — Installing Our Packages</h2>
-      <div class="post-content">
-        <p>There is something that happens the moment you tip a package of bees and feel that low, collective hum transfer through your gloves and up your arms. Nobody warns you about that part. I had read everything I could get my hands on, watched more videos than I care to admit, and still nothing quite prepares you for the reality of three pounds of live bees and one queen counting on you to get it right.</p>
-        <p>We started by pulling three frames from each hive to make room, working with wired wax foundation. Before anything went in, I gave everything a gentle mist — a simple sugar water spray with just a drop of lemongrass oil. It settles the bees and makes them feel a little more at home. A small thing, but it matters.</p>
-        <p>The queen cages came next. I removed the cork from the candy end and used something small to punch a tiny hole through — just enough to give the workers a head start on releasing her on their own timeline. I hung each cage sideways between two frames, right where she needed to be, and laid half a pollen patty across the top of those frames to give the colony something to work with from day one.</p>
-        <p>Then came the shake. I have read that installing your first package is something of a rite of passage in beekeeping, and I believe it. You tip the box, you commit, and a few thousand bees cascade down into the hive in a way that is equal parts terrifying and quietly wonderful. Once most of them were in, I eased the frames back into place as gently as I could manage.</p>
-        <p>The leftover package cage went right in front of the entrance so the stragglers could find their way in on their own. On top of the hive we set our custom inner cover — built to hold four quart jars of syrup — then a deep box over that to protect it, and the telescopic cover on top. Lashing straps go around each hive. Partly practical, partly because it looks right.</p>
-        <p>We ran through the whole process twice. Two packages, two hives. A couple of hours later, both package cages were empty and the bees had made themselves at home. We pulled the cages from the yard and called it a good day.</p>
-        <p class="closing">I will be honest — I am new at this. I do not have years of experience to draw from, just a lot of reading, some good training, and the kind of motivation that does not come from a book. One of these hive stands carries a small sign that reads <em>In Memory of PawPaw</em>. That one means a little more than the rest. We are just getting started.</p>
-      </div>
+      <div class="post-index-title">The First Shake — Installing Our Packages</div>
+      <p class="post-index-excerpt">There is something that happens the moment you tip a package of bees and feel that low, collective hum transfer through your gloves and up your arms. Nobody warns you about that part.</p>
+      <span class="post-read-more">Read More</span>
     </div>
-  </article>
+  </a>
 
 </div></div>
 </body>
