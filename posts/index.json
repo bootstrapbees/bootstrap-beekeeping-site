@@ -1,0 +1,56 @@
+[
+  {
+    "file": "posts/post-006.html",
+    "title": "Three Weeks In — The Mite Wash",
+    "excerpt": "Three weeks after install is when a new package colony crosses a line. The queen has been laying long enough that you have real capped brood — which means mites have places to hide and reproduce. We ran an alcohol wash on both hives today, and the numbers came back clean.",
+    "date": "April 17, 2026",
+    "tag": "Mite Baseline",
+    "image": "images/post6-sawyers-brood.jpg",
+    "alt": "Sawyer's hive brood frame during the three-week inspection"
+  },
+  {
+    "file": "posts/post-005.html",
+    "title": "Opening the Books — Our First Full Inspection",
+    "excerpt": "Eleven days after install, the weather finally lined up — sunny, a light breeze, warm enough that the bees were foraging hard. The colonies were calm from the moment we cracked the first cover.",
+    "date": "April 7, 2026",
+    "tag": "First Inspection",
+    "image": "images/post5-inspection.jpg",
+    "alt": "First full hive inspection at Bootstrap Beekeeping apiary"
+  },
+  {
+    "file": "posts/post-004.html",
+    "title": "They Are Bringing It Home",
+    "excerpt": "You do not need to open a hive to know things are going well. Sometimes you just watch the landing board. Those bright yellow pollen baskets tell the whole story.",
+    "date": "April 2026",
+    "tag": "Field Notes",
+    "image": "images/post4-pollen.jpg",
+    "alt": "Foragers returning to the hive loaded with pollen"
+  },
+  {
+    "file": "posts/post-003.html",
+    "title": "Day 3 — A Quick Look and a Good Sign",
+    "excerpt": "Day three called for a quick, low-disturbance check — just enough to confirm both queens had been released and that things were moving in the right direction.",
+    "date": "March 2026",
+    "tag": "Queen Check",
+    "image": "images/post3-frames2.jpg",
+    "alt": "Frames covered in bees during day 3 queen check"
+  },
+  {
+    "file": "posts/post-002.html",
+    "title": "24 Hours In — So Far, So Good",
+    "excerpt": "By the next morning both hives had bees moving in and out of the entrance with purpose. Not frantic, not clustered in confusion — just working.",
+    "date": "March 2026",
+    "tag": "Day 1 Check",
+    "image": "images/post2-hives.jpg",
+    "alt": "Both hives active 24 hours after install"
+  },
+  {
+    "file": "posts/post-001.html",
+    "title": "The First Shake — Installing Our Packages",
+    "excerpt": "There is something that happens the moment you tip a package of bees and feel that low, collective hum transfer through your gloves and up your arms. Nobody warns you about that part.",
+    "date": "March 2026",
+    "tag": "Package Install",
+    "image": "images/post1-install.jpg",
+    "alt": "Package install day at the Bootstrap Beekeeping apiary"
+  }
+]

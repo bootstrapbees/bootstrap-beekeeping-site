@@ -23,32 +23,16 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.09'/%3E%3C/svg%3E");
     pointer-events:none; z-index:2;
   }
-  .top-banner {
-    position:fixed; top:0; left:0; right:0; z-index:200;
-    background:var(--navy);
-    display:flex; align-items:center; justify-content:center;
-    padding:8px 20px; gap:10px; height:40px;
-  }
+  .top-banner { position:fixed; top:0; left:0; right:0; z-index:200; background:var(--navy); display:flex; align-items:center; justify-content:center; padding:8px 20px; gap:10px; height:40px; }
   .top-banner span { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,246,238,0.75); }
   .top-banner .dot { width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.7; }
   .bottom-strip { position:fixed; bottom:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 40%,var(--amber) 60%,var(--navy) 100%); z-index:200; }
-  .hamburger {
-    position:fixed; top:6px; left:14px; z-index:300;
-    background:none; border:none; cursor:pointer;
-    display:flex; flex-direction:column; justify-content:center; gap:5px;
-    padding:4px; width:32px; height:28px;
-  }
+  .hamburger { position:fixed; top:6px; left:14px; z-index:300; background:none; border:none; cursor:pointer; display:flex; flex-direction:column; justify-content:center; gap:5px; padding:4px; width:32px; height:28px; }
   .hamburger span { display:block; width:22px; height:2px; background:rgba(250,246,238,0.85); border-radius:2px; transition:all 0.3s ease; transform-origin:center; }
   .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity:0; }
   .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-  .drawer {
-    position:fixed; top:0; left:0; bottom:0; width:260px;
-    background:var(--navy); z-index:250;
-    transform:translateX(-100%); transition:transform 0.3s ease;
-    display:flex; flex-direction:column;
-    padding-top:80px; padding-bottom:40px;
-  }
+  .drawer { position:fixed; top:0; left:0; bottom:0; width:260px; background:var(--navy); z-index:250; transform:translateX(-100%); transition:transform 0.3s ease; display:flex; flex-direction:column; padding-top:80px; padding-bottom:40px; }
   .drawer.open { transform:translateX(0); }
   .drawer-logo { display:flex; justify-content:center; margin-bottom:24px; padding:0 20px; }
   .drawer-logo img { width:110px; }
@@ -59,13 +43,7 @@
   .drawer-overlay.open { opacity:1; pointer-events:all; }
 
   /* HERO */
-  .hero {
-    position:relative; z-index:1;
-    min-height:100vh;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:80px 24px 60px;
-    text-align:center;
-  }
+  .hero { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 24px 60px; text-align:center; }
   .hero-logo { animation:floatIn 0.9s ease-out both; margin-bottom:16px; line-height:0; }
   .hero-logo img { width:280px; height:auto; display:block; }
   @keyframes floatIn { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
@@ -77,85 +55,57 @@
   .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,6vw,3.2rem); font-weight:900; color:var(--navy); line-height:1.15; animation:fadeUp 1s ease-out 0.4s both; }
   .hero h1 em { font-style:italic; color:var(--gold); }
   .hero-tagline { font-style:italic; font-size:clamp(0.9rem,2.4vw,1.05rem); color:var(--text-muted); margin-top:10px; max-width:400px; line-height:1.75; animation:fadeUp 1s ease-out 0.5s both; }
-  .hero-photo {
-    width:100%; max-width:420px; margin:24px 0 6px;
-    border-radius:8px; overflow:hidden;
-    box-shadow:0 4px 24px rgba(27,42,74,0.15);
-    animation:fadeUp 1s ease-out 0.6s both;
-    position:relative;
-  }
+  .hero-photo { width:100%; max-width:420px; margin:24px 0 6px; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(27,42,74,0.15); animation:fadeUp 1s ease-out 0.6s both; position:relative; }
   .hero-photo img { width:100%; height:260px; object-fit:cover; object-position:center 20%; display:block; }
-  .hero-photo::after {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(180deg,rgba(27,42,74,0.06) 0%,transparent 40%,transparent 60%,rgba(27,42,74,0.1) 100%);
-    pointer-events:none;
-  }
+  .hero-photo::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(27,42,74,0.06) 0%,transparent 40%,transparent 60%,rgba(27,42,74,0.1) 100%); pointer-events:none; }
   .hero-photo-caption { font-size:0.72rem; font-style:italic; color:var(--text-muted); margin-bottom:20px; animation:fadeUp 1s ease-out 0.65s both; }
   .comb-row { display:flex; gap:7px; margin:4px 0 24px; animation:fadeUp 1s ease-out 0.7s both; }
   .comb-cell { width:13px; height:15px; clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%); }
   .comb-cell.g { background:var(--gold-light); opacity:0.5; }
   .comb-cell.n { background:var(--navy); opacity:0.25; }
   .comb-cell.gd { background:var(--gold); opacity:0.7; }
-
-  /* NAV BUTTONS — 2x2 grid on mobile, flex row on wider screens */
-  .hero-nav {
-    display:grid; grid-template-columns:1fr 1fr;
-    gap:10px; width:100%; max-width:320px;
-    animation:fadeUp 1s ease-out 0.8s both;
-  }
-  @media(min-width:480px) {
-    .hero-nav { display:flex; align-items:center; flex-wrap:wrap; justify-content:center; max-width:none; }
-  }
-  .hero-nav a {
-    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:#F7F3E8; text-decoration:none; padding:10px 16px;
-    background:linear-gradient(180deg,#2C4070 0%,#1B2A4A 100%);
-    border-radius:6px; border-top:1px solid rgba(255,255,255,0.15);
-    box-shadow:0 6px 0 #0d1926,0 8px 10px rgba(0,0,0,0.35);
-    transition:all 0.1s ease; position:relative; top:0;
-    text-align:center; display:block;
-  }
+  .hero-nav { display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; max-width:320px; animation:fadeUp 1s ease-out 0.8s both; }
+  @media(min-width:480px) { .hero-nav { display:flex; align-items:center; flex-wrap:wrap; justify-content:center; max-width:none; } }
+  .hero-nav a { font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:#F7F3E8; text-decoration:none; padding:10px 16px; background:linear-gradient(180deg,#2C4070 0%,#1B2A4A 100%); border-radius:6px; border-top:1px solid rgba(255,255,255,0.15); box-shadow:0 6px 0 #0d1926,0 8px 10px rgba(0,0,0,0.35); transition:all 0.1s ease; position:relative; top:0; text-align:center; display:block; }
   .hero-nav a:hover { top:3px; box-shadow:0 3px 0 #0d1926,0 4px 6px rgba(0,0,0,0.3); background:linear-gradient(180deg,#354d85 0%,#2C4070 100%); }
   .hero-nav a:active { top:6px; box-shadow:0 0px 0 #0d1926,0 2px 4px rgba(0,0,0,0.2); }
-
   @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
-  /* POSTS SECTION */
-  .section { position:relative; z-index:1; background:#F7F3E8; padding:56px 24px 64px; }
+  /* LATEST POST SECTION */
+  .section { position:relative; z-index:1; background:#F7F3E8; padding:52px 24px 60px; }
   .section-inner { max-width:680px; margin:0 auto; }
   .section-label { display:flex; justify-content:center; margin-bottom:10px; }
   .section-label span { background:var(--navy); color:rgba(250,246,238,0.8); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 14px; border-radius:2px; }
   .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:900; color:var(--navy); text-align:center; margin-bottom:8px; }
   .section-title em { font-style:italic; color:var(--gold); }
-  .section-sub { font-style:italic; color:var(--text-muted); text-align:center; font-size:0.95rem; margin-bottom:32px; }
-  .section-rule { display:flex; width:80px; margin:0 auto 36px; }
+  .section-sub { font-style:italic; color:var(--text-muted); text-align:center; font-size:0.95rem; margin-bottom:28px; }
+  .section-rule { display:flex; width:80px; margin:0 auto 32px; }
   .rule-navy { flex:2; height:3px; background:var(--navy); border-radius:2px 0 0 2px; }
   .rule-gold { flex:1; height:3px; background:var(--gold); border-radius:0 2px 2px 0; }
-  .post-list { display:flex; flex-direction:column; gap:20px; }
-  .post-card {
-    background:#fff; border-radius:6px;
-    border:1px solid rgba(27,42,74,0.1);
-    box-shadow:0 2px 12px rgba(27,42,74,0.07);
-    padding:22px 24px; text-decoration:none; color:inherit;
-    display:flex; flex-direction:column; gap:6px;
-    transition:box-shadow 0.2s, transform 0.2s;
-  }
-  .post-card:hover { box-shadow:0 6px 24px rgba(27,42,74,0.13); transform:translateY(-2px); }
-  .post-meta { display:flex; align-items:center; gap:10px; }
-  .post-num { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); font-family:'Lora',serif; }
-  .post-dot { width:3px; height:3px; border-radius:50%; background:var(--text-muted); opacity:0.4; }
-  .post-date { font-size:0.72rem; color:var(--text-muted); font-style:italic; }
-  .post-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--navy); line-height:1.3; }
-  .post-excerpt { font-size:0.92rem; color:var(--text-muted); line-height:1.7; }
-  .post-arrow { font-size:0.78rem; color:var(--gold); letter-spacing:0.08em; margin-top:4px; }
+
+  /* Latest post card */
+  .latest-card { display:block; text-decoration:none; color:inherit; background:#fff; border-radius:8px; border:1px solid rgba(27,42,74,0.1); box-shadow:0 2px 20px rgba(27,42,74,0.08); overflow:hidden; transition:box-shadow 0.2s, transform 0.2s; }
+  .latest-card:hover { box-shadow:0 8px 32px rgba(27,42,74,0.14); transform:translateY(-3px); }
+  .latest-card-img { width:100%; height:280px; object-fit:cover; display:block; }
+  .latest-card-body { padding:24px 26px 28px; }
+  .latest-badge { display:inline-block; background:var(--gold); color:#fff; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; padding:3px 10px; border-radius:2px; margin-bottom:12px; font-weight:700; }
+  .latest-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .latest-date { font-size:0.72rem; color:var(--text-muted); font-style:italic; }
+  .latest-dot { width:3px; height:3px; border-radius:50%; background:var(--gold); opacity:0.6; }
+  .latest-tag { font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); background:var(--navy-pale); padding:2px 8px; border-radius:2px; }
+  .latest-title { font-family:'Playfair Display',serif; font-size:clamp(1.3rem,4vw,1.7rem); font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:12px; }
+  .latest-excerpt { font-size:0.97rem; color:var(--text-muted); line-height:1.8; margin-bottom:18px; }
+  .latest-read-more { display:inline-flex; align-items:center; gap:8px; font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+  .latest-read-more::after { content:'→'; font-size:1rem; }
+
+  .view-all-wrap { text-align:center; margin-top:28px; }
+  .view-all-link { display:inline-flex; align-items:center; gap:8px; padding:12px 28px; background:var(--navy); color:#F7F3E8; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-radius:6px; font-family:'Lora',serif; transition:background 0.2s; }
+  .view-all-link:hover { background:var(--navy-light); }
+  .view-all-link::after { content:'→'; }
 
   /* ABOUT STRIP */
   .about-strip { position:relative; z-index:1; background:var(--navy); padding:52px 24px; text-align:center; }
-  .about-strip::before {
-    content:''; position:absolute; inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.07'/%3E%3C/svg%3E");
-    pointer-events:none;
-  }
+  .about-strip::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V17L28 2 2 17v32l26 15z' fill='%23C8860A' fill-opacity='0.07'/%3E%3C/svg%3E"); pointer-events:none; }
   .about-strip-inner { max-width:560px; margin:0 auto; position:relative; }
   .about-strip-label { display:inline-block; background:rgba(200,134,10,0.2); color:var(--gold-light); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 14px; border-radius:2px; margin-bottom:16px; }
   .about-strip h2 { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,4vw,2rem); font-weight:900; color:#F7F3E8; line-height:1.25; margin-bottom:14px; }
@@ -173,6 +123,22 @@
   .app-strip p { color:var(--text-muted); font-size:0.97rem; line-height:1.8; font-style:italic; margin-bottom:24px; }
   .app-strip-link { display:inline-block; padding:11px 28px; background:var(--navy); color:#F7F3E8; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-radius:4px; font-family:'Lora',serif; transition:background 0.2s; }
   .app-strip-link:hover { background:var(--navy-light); }
+
+  /* FOOTER */
+  .site-footer { position:relative; z-index:1; background:var(--navy); padding:32px 24px 40px; text-align:center; border-top:3px solid var(--gold); }
+  .site-footer-inner { max-width:560px; margin:0 auto; }
+  .footer-logo { width:80px; margin:0 auto 16px; opacity:0.85; }
+  .footer-tagline { font-style:italic; color:rgba(250,246,238,0.6); font-size:0.85rem; margin-bottom:16px; line-height:1.6; }
+  .footer-links { display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .footer-links a { color:rgba(250,246,238,0.75); font-size:0.78rem; text-decoration:none; letter-spacing:0.06em; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--gold-light); }
+  .footer-links .sep { color:rgba(250,246,238,0.25); font-size:0.7rem; }
+  .footer-email { display:inline-flex; align-items:center; gap:8px; color:var(--gold-light); font-size:0.82rem; text-decoration:none; margin-bottom:20px; transition:color 0.2s; }
+  .footer-email:hover { color:#fff; }
+  .footer-copy { font-size:0.72rem; color:rgba(250,246,238,0.4); letter-spacing:0.06em; }
+
+  /* Loading state */
+  .latest-loading { text-align:center; padding:40px 0; font-style:italic; color:var(--text-muted); font-size:0.95rem; }
 </style>
 </head>
 <body>
@@ -226,75 +192,18 @@
   </nav>
 </section>
 
-<!-- LATEST POSTS -->
+<!-- LATEST FROM THE APIARY -->
 <section class="section">
   <div class="section-inner">
-    <div class="section-label"><span>From the Field</span></div>
-    <h2 class="section-title">Latest from <em>the Apiary</em></h2>
-    <p class="section-sub">Field notes written as things happen. Honest, unfiltered, and still learning.</p>
+    <div class="section-label"><span>Latest from the Field</span></div>
+    <h2 class="section-title">Most Recent <em>Field Note</em></h2>
+    <p class="section-sub">Written as things happen — honest, unfiltered, and still learning.</p>
     <div class="section-rule"><div class="rule-navy"></div><div class="rule-gold"></div></div>
-    <div class="post-list">
-
-      <a class="post-card" href="posts/post-006.html">
-        <div class="post-meta">
-          <span class="post-num">Post 06</span><div class="post-dot"></div>
-          <span class="post-date">April 2026</span>
-        </div>
-        <div class="post-title">First Alcohol Wash — Checking for Varroa</div>
-        <div class="post-excerpt">Before a single treatment goes in, you need a baseline. Here is how the mite wash went on both hives and what the numbers actually mean at three weeks post-install.</div>
-        <div class="post-arrow">Read more &rarr;</div>
-      </a>
-
-      <a class="post-card" href="posts/post-005.html">
-        <div class="post-meta">
-          <span class="post-num">Post 05</span><div class="post-dot"></div>
-          <span class="post-date">April 2026</span>
-        </div>
-        <div class="post-title">First Full Inspection — What I Saw Inside</div>
-        <div class="post-excerpt">Three weeks in, both queens confirmed laying. A look at brood pattern, drawn comb, and what a healthy young colony actually looks like when you pull the frames.</div>
-        <div class="post-arrow">Read more &rarr;</div>
-      </a>
-
-      <a class="post-card" href="posts/post-004.html">
-        <div class="post-meta">
-          <span class="post-num">Post 04</span><div class="post-dot"></div>
-          <span class="post-date">April 2026</span>
-        </div>
-        <div class="post-title">Pollen Coming In — The Foragers Are Working</div>
-        <div class="post-excerpt">Watching foragers return loaded with pollen is one of those small things that tells you everything is going right. A quick field note on what we saw at the entrance.</div>
-        <div class="post-arrow">Read more &rarr;</div>
-      </a>
-
-      <a class="post-card" href="posts/post-003.html">
-        <div class="post-meta">
-          <span class="post-num">Post 03</span><div class="post-dot"></div>
-          <span class="post-date">April 2026</span>
-        </div>
-        <div class="post-title">Queen Release Check — Are They Accepting Her?</div>
-        <div class="post-excerpt">A few days after install, you crack the hive to see if the queen made it out of her cage. This is one of the more nerve-wracking moments in early beekeeping.</div>
-        <div class="post-arrow">Read more &rarr;</div>
-      </a>
-
-      <a class="post-card" href="posts/post-002.html">
-        <div class="post-meta">
-          <span class="post-num">Post 02</span><div class="post-dot"></div>
-          <span class="post-date">March 2026</span>
-        </div>
-        <div class="post-title">First Feeder Check — Are They Taking Syrup?</div>
-        <div class="post-excerpt">New packages need feeding while they draw comb. A quick look at the feeders a couple days after install and what we found when we opened up.</div>
-        <div class="post-arrow">Read more &rarr;</div>
-      </a>
-
-      <a class="post-card" href="posts/post-001.html">
-        <div class="post-meta">
-          <span class="post-num">Post 01</span><div class="post-dot"></div>
-          <span class="post-date">March 2026</span>
-        </div>
-        <div class="post-title">Package Install Day — It Finally Happened</div>
-        <div class="post-excerpt">March 27th. Two packages, two hives, and more nervous energy than I expected. A full account of install day from pickup to the moment the covers went on.</div>
-        <div class="post-arrow">Read more &rarr;</div>
-      </a>
-
+    <div id="latest-post-container">
+      <div class="latest-loading">Loading latest post...</div>
+    </div>
+    <div class="view-all-wrap">
+      <a href="apiary.html" class="view-all-link">Read All Field Notes</a>
     </div>
   </div>
 </section>
@@ -319,5 +228,60 @@
   </div>
 </section>
 
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <img class="footer-logo" src="logo.png" alt="Bootstrap Beekeeping">
+    <p class="footer-tagline">Real beekeeping, built from the ground up.<br>Cherokee County, Alabama.</p>
+    <a class="footer-email" href="mailto:bootstrapbeekeeping@gmail.com">
+      bootstrapbeekeeping@gmail.com
+    </a>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <span class="sep">&#183;</span>
+      <a href="about.html">Our Story</a>
+      <span class="sep">&#183;</span>
+      <a href="apiary.html">Our Apiary</a>
+      <span class="sep">&#183;</span>
+      <a href="apiaryhq.html">Apiary HQ</a>
+      <span class="sep">&#183;</span>
+      <a href="honey.html">Honey &amp; Woodware</a>
+    </div>
+    <p class="footer-copy">&copy; <span id="footer-year"></span> Bootstrap Beekeeping. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Auto-update copyright year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // Load latest post from index.json
+  fetch('posts/index.json')
+    .then(function(r){ return r.json(); })
+    .then(function(posts){
+      if (!posts || !posts.length) return;
+      var p = posts[0]; // first entry is always the latest
+      var html =
+        '<a href="' + p.file + '" class="latest-card">' +
+          '<img class="latest-card-img" src="' + p.image + '" alt="' + p.alt + '">' +
+          '<div class="latest-card-body">' +
+            '<div class="latest-badge">Latest Post</div>' +
+            '<div class="latest-meta">' +
+              '<span class="latest-date">' + p.date + '</span>' +
+              '<div class="latest-dot"></div>' +
+              '<span class="latest-tag">' + p.tag + '</span>' +
+            '</div>' +
+            '<div class="latest-title">' + p.title + '</div>' +
+            '<p class="latest-excerpt">' + p.excerpt + '</p>' +
+            '<span class="latest-read-more">Read More</span>' +
+          '</div>' +
+        '</a>';
+      document.getElementById('latest-post-container').innerHTML = html;
+    })
+    .catch(function(){
+      document.getElementById('latest-post-container').innerHTML =
+        '<p style="text-align:center;font-style:italic;color:var(--text-muted)">Visit <a href="apiary.html" style="color:var(--gold)">Our Apiary</a> to read our field notes.</p>';
+    });
+</script>
 </body>
 </html>
