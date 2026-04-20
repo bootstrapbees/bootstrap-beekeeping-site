@@ -165,6 +165,51 @@
   function openMenu(){hamburger.classList.add('open');drawer.classList.add('open');overlay.classList.add('open');}
   function closeMenu(){hamburger.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('open');}
   hamburger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
+  // Subscribe form
+  const BB_SUPA_URL = 'https://hvunisdpkbejvenaesjf.supabase.co';
+  const BB_SUPA_KEY = 'sb_publishable_disabTr4VNwlvX-gvXmffA_Sz9mpBIn';
+
+  async function handleSubscribe() {
+    var email = document.getElementById('sub-email').value.trim();
+    var msg = document.getElementById('sub-msg');
+    if (!email || !email.includes('@')) {
+      msg.style.color = '#C0392B';
+      msg.textContent = 'Please enter a valid email address.';
+      return;
+    }
+    msg.style.color = 'var(--text-muted)';
+    msg.textContent = 'Subscribing...';
+    try {
+      var res = await fetch(BB_SUPA_URL + '/rest/v1/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': BB_SUPA_KEY,
+          'Authorization': 'Bearer ' + BB_SUPA_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email: email })
+      });
+      if (res.status === 201) {
+        msg.style.color = '#1B6B3A';
+        msg.textContent = 'You are subscribed. Thank you!';
+        document.getElementById('sub-email').value = '';
+      } else if (res.status === 409) {
+        msg.style.color = 'var(--text-muted)';
+        msg.textContent = 'That email is already subscribed.';
+      } else {
+        throw new Error('Unexpected response');
+      }
+    } catch(e) {
+      msg.style.color = '#C0392B';
+      msg.textContent = 'Something went wrong. Please try again.';
+    }
+  }
+
+  // Allow Enter key to subscribe
+  document.getElementById('sub-email').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleSubscribe();
+  });
 </script>
 
 <!-- HERO -->
@@ -204,6 +249,22 @@
     </div>
     <div class="view-all-wrap">
       <a href="apiary.html" class="view-all-link">Read All Field Notes</a>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE SECTION -->
+<section style="position:relative;z-index:1;background:var(--linen);padding:52px 24px;border-top:1px solid rgba(27,42,74,0.08)">
+  <div style="max-width:480px;margin:0 auto;text-align:center">
+    <div style="display:inline-block;background:var(--navy);color:rgba(250,246,238,0.8);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:16px">Stay in the Loop</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,1.9rem);font-weight:900;color:var(--navy);line-height:1.25;margin-bottom:10px">Get New Posts <em style="font-style:italic;color:var(--gold)">by Email</em></h2>
+    <p style="font-style:italic;color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:28px">No spam, no selling your information. Just a note when there is something new from the apiary worth reading.</p>
+    <div id="subscribe-form">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <input id="sub-email" type="email" placeholder="Your email address" style="flex:1;min-width:200px;padding:12px 16px;border:1px solid rgba(27,42,74,0.2);border-radius:6px;font-family:'Lora',serif;font-size:0.95rem;color:var(--text);background:#fff;outline:none">
+        <button onclick="handleSubscribe()" style="padding:12px 24px;background:var(--navy);color:#F7F3E8;border:none;border-radius:6px;font-family:'Lora',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.06em;cursor:pointer;white-space:nowrap;transition:background 0.2s">Subscribe</button>
+      </div>
+      <p id="sub-msg" style="margin-top:14px;font-size:0.85rem;font-style:italic;min-height:20px;color:var(--text-muted)"></p>
     </div>
   </div>
 </section>
